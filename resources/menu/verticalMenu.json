@@ -121,7 +121,7 @@
       "name": "Productos",
       "icon": "menu-icon bx bx-user-circle",
       "slug": "cards-basic",
-      "url": "/products"
+      "url": "/productos"
     },
     {
       "menuHeader": "Components"
