@@ -20,13 +20,17 @@
     <div class="card">
         <h5 class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                Lista de productos
+                Lista de 
+                <a href="{{route('productos.create')}}">
                 <button class="btn btn-secondary create-new btn-primary" aria-controls="DataTables_Table_0" type="button">
                     <span>
-                        <i class="bx bx-plus me-sm-1"></i>
-                        <span class="d-none d-sm-inline-block">Nuevo producto</span>
+                        <i class="bx bx-plus me-sm-1">
+                            
+                        </i>
+                        <span class="d-none d-sm-inline-block" >Nuevo producto</span>
                     </span>
                 </button>
+                </a>
             </div>
         </h5>
 
