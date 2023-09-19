@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Producto;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -44,7 +45,7 @@ class ProductoController extends Controller
             'status' => 'required|string',
             'fecha_activo' => 'required|date',
             'fecha_inactivo' => 'required|date|after:fecha_activo',
-            'imagen' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagen' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
         
             // Procesar la imagen   
@@ -67,14 +68,16 @@ class ProductoController extends Controller
             $Producto = new Producto();
         }
 
-        $Producto->nombre_producto = $request -> input('nombre_producto');
-        $Producto->descripcion = $request-> input('descripcion');
-        $Producto->precio = $request -> input('precio');
-        $Producto->stock = $request -> input('stock');
-        $Producto->status=$request->input('status');
-        $Producto->fecha_activo=$request->input('fecha_activo');
-        $Producto->fecha_inactivo=$request->input('fecha_inactivo');
-        $Producto->imagen=$request->input('imagen');
+        $Producto->nombre_producto = $request->input('nombre_producto');
+        $Producto->descripcion = $request->input('descripcion');
+        $Producto->precio = $request->input('precio');
+        $Producto->stock = $request->input('stock');
+        $Producto->status = $request->input('status');
+    
+        // Utiliza Carbon para las fechas
+        $Producto->fecha_activo = Carbon::parse($request->input('fecha_activo'));
+        $Producto->fecha_limite = Carbon::parse($request->input('fecha_limite'));
+
         $Producto ->save();
 
         return redirect()->route('productos.index');

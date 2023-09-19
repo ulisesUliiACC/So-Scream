@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/productos',[ProductoController::class,'index'])->name('productos.index');
+    Route::get('/productos/create',[ProductoController::class,'create'])->name('productos.create');
+    Route::post('/productos/create',[ProductoController::class,'store'])->name('productos.store');
+
 });
 
 require __DIR__.'/auth.php';
