@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [ // Este es un ejemplo de un guard personalizado llamado "admin"
+            'driver' => 'session',
+            'provider' => 'admins', // Debes tener definido un proveedor correspondiente
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'admins' => [ // Debes tener definido un proveedor correspondiente para "admins"
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin_user::class, // Debes tener un modelo de administrador
         ],
 
         // 'users' => [

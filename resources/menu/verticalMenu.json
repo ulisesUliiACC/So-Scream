@@ -47,6 +47,24 @@
       "icon": "menu-icon bx bx-user-circle",
       "slug": "cards-basic",
       "url": "/cards/basic"
+    } ,
+    {
+      "menuHeader": "Productos"
+    },
+    {
+      "name": "Productos",
+      "icon": "menu-icon bx bx-user-circle",
+      "slug": "cards-basic",
+      "url": "/admin/productos"
+    },
+    {
+      "menuHeader": "Administracion de roles"
+    },
+    {
+      "name": "Roles",
+      "icon": "menu-icon bx bx-user-circle",
+      "slug": "cards-basic",
+      "url": "/admin/roles"
     }    
   ]
 }

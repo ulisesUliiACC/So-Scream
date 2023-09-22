@@ -23,7 +23,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session();
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::ADMIN);
     }
      /**
      * Destroy an authenticated session.
