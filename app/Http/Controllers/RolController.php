@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permissions\Models\Permission as ContractsPermission;
+
 class RolController extends Controller
 {
     /**

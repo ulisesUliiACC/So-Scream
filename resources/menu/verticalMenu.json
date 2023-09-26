@@ -46,7 +46,7 @@
       "name": "Usuarios",
       "icon": "menu-icon bx bx-user-circle",
       "slug": "cards-basic",
-      "url": "/cards/basic"
+      "url": "admin/usuarios"
     } ,
     {
       "menuHeader": "Productos"

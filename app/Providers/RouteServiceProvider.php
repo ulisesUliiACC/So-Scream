@@ -17,8 +17,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/ulises';
-    public const ADMIN ='/dashboard';
+    public const HOME = '/dashboard';
+    public const ADMIN_DASHBOARD = '/admin/dashboard';
+    
+    
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -39,9 +41,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/authAdmin.php'));
+               
         });
     }
 

@@ -1,9 +1,12 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
+use app\Http\Controllers\Auth_admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,32 +22,30 @@ use App\Http\Controllers\RolController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/ulises', function () {
-    return view('ulises');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
 Route::middleware('auth')->group(function () {
-    Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-/* rutas de productos para la area adminitrativa */
-Route::middleware('auth')->group(function(){
-Route::get('/admin/productos',[ProductoController::class,'index'])->name('productos.index');
-Route::get('/admin/productos/create',[ProductoController::class,'create'])->name('productos.create');
-Route::post('/admin/productos/create',[ProductoController::class,'store'])->name('productos.store');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 /* vista de roles */
 Route::get('/admin/roles',[RolController::class,'index'])->name('admin_roles.index');
 Route::get('/admin/roeles',[RolController::class,'create'])->name('admin_roles.create');
 
+/* ---------------------------------------------------------------------------------------*/
+
+/* rutas de usuarios */
+Route::get('/admin/usuarios',[UsuarioController::class,'index'])->name('usuarios.index');
+
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
 
 
