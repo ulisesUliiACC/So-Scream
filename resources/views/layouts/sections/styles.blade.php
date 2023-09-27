@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="{{ asset(mix('assets/css/demo.css')) }}" />
 
 
+
+
 <link rel="stylesheet" href="{{ asset(mix('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')) }}" />
 
 <!-- Vendor Styles -->

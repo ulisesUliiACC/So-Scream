@@ -15,5 +15,5 @@
 @endsection
 
 @section('content')
-  
+    
 @endsection

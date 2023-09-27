@@ -128,10 +128,20 @@ mixAssetsDir('js/**/*.js', (src, dest) => mix.scripts(src, dest));
 mixAssetsDir('css/**/*.css', (src, dest) => mix.copy(src, dest));
 
 mix.copy('node_modules/boxicons/fonts/*', 'public/assets/vendor/fonts/boxicons');
+
 /*mix.js('resources/assets/vendor/js/imagenPreview.js', 'public/js')
 mix.js('resources/assets/vendor/libs/dropzone/dropzone.js', 'resources/vendor/libs')
 */
-mix.version();
+
+//mix.js('resources/js/app.js', 'public/js') // Ruta del archivo JavaScript principal
+//   .sass('resources/scss/style.scss', 'public/css') // Ruta del archivo SCSS principal
+//   .styles([
+//      'resources/css/bootstrap.min.css', // Ruta del archivo CSS de Bootstrap
+//      'resources/css/tiny-slider.css', // Ruta del archivo CSS de tiny-slider
+//      'resources/css/style.css', // Ruta del archivo CSS personalizado
+//   ], 'public/css/all.css'); // Compila tus archivos CSS en uno solo
+//mix.version();
+
 
 /*
  |--------------------------------------------------------------------------
@@ -145,3 +155,4 @@ mix.version();
  */
 
 mix.browserSync('http://127.0.0.1:8000/');
+
