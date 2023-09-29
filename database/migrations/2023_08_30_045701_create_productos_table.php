@@ -18,12 +18,11 @@ return new class extends Migration
             $table->string('nombre_producto');
             $table->text('descripcion');
             $table->decimal('precio', 10, 2);
-            $table->decimal('precio_socio', 10, 2);
             $table->integer('stock');
             $table->string('status')->default('Activo');
             $table->boolean('activo')->default(true);
-            $table->date('fecha_activo');
-            $table->date('fecha_limite');
+          //$table->date('fecha_activo');
+          //$table->date('fecha_limite');
             $table->string('imagen')->nullable(); // Puedes cambiar esto según cómo almacenes las imágenes
             $table->timestamps();
         });

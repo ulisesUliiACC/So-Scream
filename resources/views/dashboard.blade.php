@@ -25,7 +25,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+				<a class="navbar-brand" href="index.html">So Cream<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -59,14 +59,14 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<h1>suplemento de <span clsas="d-block">Soya</span></h1>
+								<p class="mb-4">sustituto de crema en polvo a base de soya y avena para café instantáneo</p>
+								<p><a href="" class="btn btn-secondary me-2">Comprar Ahora</a><a href="#" class="btn btn-white-outline">Ver mas</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="images/couch.png" class="img-fluid">
+								<img src="imagenes/So-Cream.jpg" class="img-fluid">
 							</div>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
+						<h2 class="mb-4 section-title">Elaborar un sustituto de crema con un % bajo en grasa saturada.</h2>
 						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
 						<p><a href="shop.html" class="btn">Explore</a></p>
 					</div> 
@@ -90,12 +90,12 @@
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="cart.html">
-							<img src="images/product-1.png" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
+							<img src="imagenes/So-Cream.jpg" class="img-fluid product-thumbnail">
+							<h3 class="product-title">crema de soya</h3>
 							<strong class="product-price">$50.00</strong>
 
 							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
+								<img src="imagenes/So-Cream.jpg" class="img-fluid">
 							</span>
 						</a>
 					</div> 

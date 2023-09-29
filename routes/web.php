@@ -1,12 +1,12 @@
 <?php
 
-
+use App\Models\User;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
-use app\Http\Controllers\Auth_admin\DashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,20 +34,23 @@ Route::middleware('auth')->group(function () {
 });
 
 /* vista de roles */
-Route::get('/admin/roles',[RolController::class,'index'])->name('admin_roles.index');
-Route::get('/admin/roeles',[RolController::class,'create'])->name('admin_roles.create');
+Route::get('/admin/roles',[RolController::class,'index'])->name('roles.index');
+Route::get('/admin/roeles',[RolController::class,'create'])->name('roles.create');
 
 /* ---------------------------------------------------------------------------------------*/
 
 /* rutas de usuarios */
-Route::get('/admin/usuarios',[UsuarioController::class,'index'])->name('usuarios.index');
+
 
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
+Route::middleware('auth:admin')->group(function (){
 
+    Route::get('/admin/usuarios',[UsuarioController::class,'index'])->name('usuarios.index');
+});
 
 
 
