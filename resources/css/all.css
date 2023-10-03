@@ -718,3 +718,9 @@ textarea {
     height: 50px;
     border-radius: 50%;
     background: rgba(59, 93, 80, 0.2); }
+    .imagen-modal {
+      max-width: 100%; /* La imagen se ajustará al ancho máximo del modal */
+      max-height: 80vh; /* Altura máxima del 80% del viewport height */
+      display: block; /* Elimina cualquier margen o espacio adicional */
+      margin: 0 auto; /* Centra la imagen horizontalmente */
+  }

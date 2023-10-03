@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->decimal('precio', 10, 2);
             $table->integer('stock');
-            $table->boolean('estado')->default(false);   // para activar de manera manual
+            $table->boolean('estado')->default(true);   // para activar de manera manual
             $table->date('fecha_activo');
             $table->date('fecha_limite');
             $table->string('imagen')->nullable(); 

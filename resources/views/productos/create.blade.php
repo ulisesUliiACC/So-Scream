@@ -109,31 +109,25 @@
                                 </font>
                             </label>
                             <input type="date" class="form-control" id="ecommerce-product-sku" placeholder="precio"
-                                name="fecha_limite" aria-label="precio">
-                                
-                        </div>
-                        </div>
-                        <font style="vertical-align: inherit;">estado</font>
-                        <label class="form-check-label" for="estado">
-                            Estado
-                        </label>
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" id="estado" name="estado">
-                            <input type="hidden" name="estado" value="false"> <!-- Valor predeterminado -->
-                            <label class="form-check-label" for="estado">
-                                <span id="estadoLabelBadge" class="badge bg-label-success">Activo</span>
-                                <span id="estadoLabelBadgeInactive" class="badge bg-label-danger">Inactivo</span>
-                            </label>
-                        </div>
-                        
-                        
-                      </div>
-                      
-                        
-                        
-
+                                name="fecha_limite" aria-label="precio">  
+                          </div>
+                          
+                          <label class="form-check-label" for="estado">
+                              Estado
+                          </label>
+                          <div class="col">
+                              <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="estado">
+                                <option selected>STATUS</option>
+                                <option value="1">Habilitado</option>
+                                <option value="0">Desabilitado</option>                                
+                              </select>
+                          </div>
+                          <div class="col">
+                           
+                          </div>
+                        </div>                                                                                               
+                      </div>                                                                      
                         <!-- Description -->
-
                     </div>
                 </div>
                 <!-- /Product Information -->
@@ -205,43 +199,10 @@
                 reader.readAsDataURL(this.files[0]);
             });
         });
-    
-    
-        /// estados del producto a activo y inactivo
-    
-        
-        const estadoCheckbox = document.getElementById('estado');
-        const estadoLabelBadge = document.getElementById('estadoLabelBadge');
-        const estadoLabelBadgeInactive = document.getElementById('estadoLabelBadgeInactive');
-
-        estadoCheckbox.addEventListener('change', function () {
-          if (estadoCheckbox.checked) {
-              estadoLabelBadge.style.display = 'inline';
-              estadoLabelBadgeInactive.style.display = 'none';
-              // Configura el valor del campo "estado" como true cuando está marcado
-              estadoCheckbox.value = 'true';
-            } else {
-                estadoLabelBadge.style.display = 'none';
-                estadoLabelBadgeInactive.style.display = 'inline';
-                // Configura el valor del campo "estado" como false cuando está desmarcado
-                estadoCheckbox.value = 'false';
-    }
-});
-
-// Inicialmente, ocultar el estado "Inactivo" si el interruptor está marcado
-          if (estadoCheckbox.checked) {
-              estadoLabelBadge.style.display = 'inline';
-              estadoLabelBadgeInactive.style.display = 'none';
-              // Configura el valor del campo "estado" como true si inicialmente está marcado
-              estadoCheckbox.value = 'true';
-            } else {
-               estadoLabelBadge.style.display = 'none';
-               estadoLabelBadgeInactive.style.display = 'inline';
-               // Configura el valor del campo "estado" como false si inicialmente está desmarcado
-               estadoCheckbox.value = 'false';
-}
-
     </script>
+   
+    
+    
 @endsection
 
 

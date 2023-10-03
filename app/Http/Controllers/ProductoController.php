@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Carbon\Carbon;
 use App\Models\Producto;
+use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -41,7 +41,8 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        //dd($request->imagen);
+            
 
        // $validator = Validator::make($request->all(), [
        //     'nombre_producto' => 'required|string|max:255',
@@ -53,7 +54,6 @@ class ProductoController extends Controller
        //     'fecha_limite' => 'required|date|after:fecha_activo',
        //     //'imagen' => 'image|mimes:jpeg,png,jpg|max:1024', // Tamaño máximo de imagen 1MB
        // ]);
-//
        // if ($validator->fails()) {
        //     return redirect()
        //         ->back()
@@ -66,17 +66,18 @@ class ProductoController extends Controller
         $Producto->descripcion = $request->input('descripcion');
         $Producto->precio = $request->input('precio');
         $Producto->stock = $request->input('stock');
-        $Producto->estado = $request->input('estado') == 'true' ? 1 : 0; // Convierte 'true' a 1 y 'false' a 0
-
+        $Producto->estado = $request->input('estado') == '1' ? true : false;
         $Producto->fecha_activo = Carbon::parse($request->input('fecha_activo'));
         $Producto->fecha_limite = Carbon::parse($request->input('fecha_limite'));
+
 
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
             $imagenNombre = time() . '_' . $imagen->getClientOriginalName();
-            $imagen->storeAs('public/imagenes', $imagenNombre);
-            $Producto->imagen = 'storage/imagenes/' . $imagenNombre;
+            $imagen->storeAs('public/imagenes', $imagenNombre); // Almacenar en storage/app/public/imagenes
+            $Producto->imagen = 'storage/imagenes/' . $imagenNombre; // Ruta incorrecta, debe ser 'imagenes/'
         }
+        
 
         $Producto->save();
 
@@ -105,7 +106,13 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+        if (!$producto) {
+            // Manejo de error si el producto no se encuentra
+            return redirect()->route('productos.index')->with('error', 'Producto no encontrado');
+        }
+        // Pasa el producto recuperado a la vista de edición
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -117,7 +124,30 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto = Producto::find($id);
+        
+        if (!$producto) {
+            // Manejo de error si el producto no se encuentra
+            return redirect()->route('productos.index')->with('error', 'Producto no encontrado');
+        }
+        $producto->nombre_producto = $request->input('nombre_producto');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->precio = $request->input('precio');
+        $producto->stock = $request->input('stock');
+        $producto->estado = $request->input('estado') == 'true' ? 1 : 0;
+    
+        $producto->fecha_activo = Carbon::parse($request->input('fecha_activo'));
+        $producto->fecha_limite = Carbon::parse($request->input('fecha_limite'));
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $imagenNombre = time() . '_' . $imagen->getClientOriginalName();
+            $imagen->storeAs('public/imagenes', $imagenNombre);
+            $producto->imagen = 'storage/imagenes/' . $imagenNombre;
+        }
+    
+        $producto->save();
+    
+        return redirect()->route('productos.index')->with('success', 'Producto actualizado con éxito');
     }
 
     /**
@@ -126,8 +156,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Producto $id)
     {
-        //
+        $id->delete();
+        return redirect()->route('productos.index');
     }
 }

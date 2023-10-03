@@ -53,6 +53,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('/admin/productos',[ProductoController::class,'index'])->name('productos.index');
     Route::get('/admin/productos/create',[ProductoController::class,'create'])->name('productos.create');
     Route::post('/admin/productos/create',[ProductoController::class,'store'])->name('productos.store');
+    Route::get('/admin/productos/{id}/edit',[ProductoController::class,'edit'])->name('productos.edit');
+    Route::delete('/admin/productos/{id}/destroy',[ProductoController::class,'destroy'])-> name ('productos.destroy');
     
 });
 
