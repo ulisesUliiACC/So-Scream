@@ -1,63 +1,66 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@extends('layouts/blankLayout')
+
+@section('title', 'Register Basic - Pages')
+
+@section('page-style')
+<!-- Page -->
+<link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-auth.css')}}">
+@endsection
+
+
+@section('content')
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
+
+      <!-- Register Card -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center">
+            <div class="hero-img-wrap">
+                <img src="imagenes/So-Cream.jpg" class="img-fluid">
+            </div>
+          </div>
+          <!-- /Logo -->
+          <h4 class="mb-2">Registro :)</h4>
+          
+
+          <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <div class="mb-3">
+                <label for="username" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="username" name="name" placeholder="Ingresa tu nombre" autofocus required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido_P" class="form-label">Apellido paterno</label>
+                <input type="text" class="form-control" id="apellido_P" name="apellido_P" placeholder="Ingresa tu apellido paterno" autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="apellido_M" class="form-label">Apellido materno</label>
+                <input type="text" class="form-control" id="apellido_M" name="apellido_M" placeholder="Ingresa tu apellido materno" autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+            </div>
+            <div class="mb-3 form-password-toggle">
+                <label class="form-label" for="password">Contraseña</label>
+                <div class="input-group input-group-merge">
+                    <input type="password" id="password" class="form-control" name="password" placeholder="••••••••" aria-describedby="password" minlength="8" required>
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                </div>
+            </div>
+        
+            <button class="btn btn-primary d-grid w-100">Registrarse</button>
+        </form>
+          
         </div>
-         <!-- apellidos P -->
-         <div>
-            <x-input-label for="apellido_P" :value="__('Apellido Paterno')" />
-            <x-text-input id="apellido_P" class="block mt-1 w-full" type="text" name="apellido_P" :value="old('apellido_P')" required autofocus autocomplete="apellido_P" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-         <!-- apellidos M -->
-         <div>
-            <x-input-label for="apellido_M" :value="__('Apellido Materno')" />
-            <x-text-input id="apellido_M" class="block mt-1 w-full" type="text" name="apellido_M" :value="old('apellido_M')" required autofocus autocomplete="apellido_P" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+      </div>
+    </div>
+    <!-- Register Card -->
+  </div>
+</div>
+</div>
+@endsection

@@ -25,17 +25,13 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['guest', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 
 /* vista de roles */
 Route::get('/admin/roles',[RolController::class,'index'])->name('roles.index');
-Route::get('/admin/roeles',[RolController::class,'create'])->name('roles.create');
+Route::get('/admin/roles',[RolController::class,'create'])->name('roles.create');
 
 /* ---------------------------------------------------------------------------------------*/
 
@@ -43,13 +39,33 @@ Route::get('/admin/roeles',[RolController::class,'create'])->name('roles.create'
 
 
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
 
 Route::middleware('auth:admin')->group(function (){
 
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
     Route::get('/admin/usuarios',[UsuarioController::class,'index'])->name('usuarios.index');
+
+    /*---- rutas de productos */
+    Route::get('/admin/productos',[ProductoController::class,'index'])->name('productos.index');
+    Route::get('/admin/productos/create',[ProductoController::class,'create'])->name('productos.create');
+    Route::post('/admin/productos/create',[ProductoController::class,'store'])->name('productos.store');
+    
+});
+
+Route::get('/shops', function () {
+    return view('shop.index');
+})->name('shops.index');
+
+Route::get('/shops', function () {
+    return view('shop.index');
+})->name('about.index');
+
+Route::get('/login_admin',function() {
+    return view('admin.auth.login_admin');
 });
 
 

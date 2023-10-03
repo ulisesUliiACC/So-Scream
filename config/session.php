@@ -130,6 +130,41 @@ return [
         'SESSION_COOKIE',
         Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
     ),
+    // config/session.php
+
+// Sesión para usuarios admin
+'admin' => [
+    'driver' => 'database', // O el driver que desees
+    'lifetime' => 120,
+    'expire_on_close' => false,
+    'encrypt' => false,
+    'files' => storage_path('framework/sessions/admin'), // Ubicación de los archivos de sesión
+    'connection' => null,
+    'table' => 'admin_sessions',
+    'store' => null,
+    'lottery' => [2, 100],
+    'cookie' => 'admin_session',
+    'path' => '/',
+    'domain' => null,
+    'secure' => false,
+],
+
+// Sesión para usuarios regulares
+'user' => [
+    'driver' => 'database', // O el driver que desees
+    'lifetime' => 120,
+    'expire_on_close' => false,
+    'encrypt' => false,
+    'files' => storage_path('framework/sessions/user'), // Ubicación de los archivos de sesión
+    'connection' => null,
+    'table' => 'user_sessions',
+    'store' => null,
+    'lottery' => [2, 100],
+    'cookie' => 'user_session',
+    'path' => '/',
+    'domain' => null,
+    'secure' => false,
+],
 
     /*
     |--------------------------------------------------------------------------

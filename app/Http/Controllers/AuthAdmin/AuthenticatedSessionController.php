@@ -12,6 +12,8 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+    //protected $guard = 'admin';
+
     /**
      * Display the login view.
      */
@@ -25,10 +27,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+      
 
-        $request->session()->regenerate();
-
+        $request->authenticate('admin'); // Especifica el guardia 'admin'
+        $request->session()->regenerate(); // Regenera la sesión
         return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
     }
 
@@ -38,11 +40,11 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('admin')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
+        return redirect()->route('admin.login');
 
-        return redirect('/');
+        
+
     }
 }

@@ -8,7 +8,9 @@ const path = require('path');
  | Configure mix
  |--------------------------------------------------------------------------
  */
-
+ mix.postCss('resources/css/app.css', 'public/css', [
+  require('tailwindcss'),
+]);
 mix.options({
   resourceRoot: process.env.ASSET_URL || undefined,
   processCssUrls: false,
@@ -128,6 +130,10 @@ mixAssetsDir('js/**/*.js', (src, dest) => mix.scripts(src, dest));
 mixAssetsDir('css/**/*.css', (src, dest) => mix.copy(src, dest));
 
 mix.copy('node_modules/boxicons/fonts/*', 'public/assets/vendor/fonts/boxicons');
+
+
+
+
 
 /*mix.js('resources/assets/vendor/js/imagenPreview.js', 'public/js')
 mix.js('resources/assets/vendor/libs/dropzone/dropzone.js', 'resources/vendor/libs')

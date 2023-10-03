@@ -98,9 +98,9 @@ $navbarDetached = ($navbarDetached ?? '');
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('admin.logout') }}">
                   @csrf
-                <a class="dropdown-item" href="route('logout')"
+                <a class="dropdown-item" href="route('admin.logout')"
                 onclick="event.preventDefault();
                       this.closest('form').submit();">
                   <i class='bx bx-power-off me-2'></i>

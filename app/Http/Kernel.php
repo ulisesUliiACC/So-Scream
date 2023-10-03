@@ -30,6 +30,7 @@ class Kernel extends HttpKernel
    */
   protected $middlewareGroups = [
     'web' => [
+      \App\Http\Middleware\RedirectIfAuthenticated::class,
       \App\Http\Middleware\EncryptCookies::class,
       \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
       \Illuminate\Session\Middleware\StartSession::class,
@@ -64,5 +65,11 @@ class Kernel extends HttpKernel
     'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
     'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+//    'auth.admin' => \App\Http\Middleware\RedirectIfAdminAuthenticated::class,
+    'admin.auth' => \App\Http\Middleware\RedirectIfAdminAuthenticated::class,
+    
   ];
+
+
+
 }

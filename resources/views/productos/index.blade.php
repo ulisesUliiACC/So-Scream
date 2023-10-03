@@ -20,16 +20,14 @@
     <div class="card">
         <h5 class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                Lista de 
+                Lista de productos
                 <a href="{{route('productos.create')}}">
-                <button class="btn btn-secondary create-new btn-primary" aria-controls="DataTables_Table_0" type="button">
-                    <span>
-                        <i class="bx bx-plus me-sm-1">
-                            
-                        </i>
-                        <span class="d-none d-sm-inline-block" >Nuevo producto</span>
-                    </span>
-                </button>
+                    <button class="btn btn-secondary create-new btn-primary" aria-controls="DataTables_Table_0" type="button">
+                        <span>
+                            <i class="bx bx-plus me-sm-1"></i>
+                            <span class="d-none d-sm-inline-block">Nuevo producto</span>
+                        </span>
+                    </button>
                 </a>
             </div>
         </h5>
@@ -40,47 +38,44 @@
                     <tr>
                         <th>Producto</th>
                         <th>imagen</th>
-                        <th>Codigo</th>
+                        <th>descripcion</th>
                         <th>precio</th>
                         <th>stock</th>
                         <th>status</th>
+                        <th>fecha creado</th>
+                        <th>fecha de baja</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    <tr>
-                        <td>
-                            <i class="fab fa-angular fa-lg text-danger me-3">
-                            </i>
-                            <strong>Angular Project</strong>
-                        </td>
-                        <td>Albert Cook</td>
-                        <td>
-                            <ul class="m-0 list-unstyled users-list avatar-group d-flex align-items-center">
-                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                    class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                    <img src="{{ asset('assets/img/avatars/5.png') }}" alt="Avatar"
-                                        class="rounded-circle">
-                                </li>
-                            </ul>
-                        </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="p-0 btn dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                        Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                        Delete</a>
+                    @foreach ($productos as $producto)
+                        <tr>
+                            <td>{{$producto->nombre_producto}} </td>
+                            <td>{{$producto->imagen}} </td>
+                            <td>{{$producto->descripcion}} </td>
+                            <td>{{$producto->precio}} </td>
+                            <td>{{$producto->stock}} </td>
+                            <td>{{$producto->estado}} </td>
+                            <td>{{$producto->fecha_activo}} </td>
+                            <td>{{$producto->fecha_limite}} </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" ><i class="bx bx-edit-alt "></i> Edit</a>
+                                        <a class="dropdown-item"><i class="bx bx-trash "></i> Delete</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+
+    {{-- Agrega tu contenido de acciones aquí --}}
+    @section('acciones')
+        <!-- Tu contenido de acciones aquí -->
+    @endsection
 @endsection

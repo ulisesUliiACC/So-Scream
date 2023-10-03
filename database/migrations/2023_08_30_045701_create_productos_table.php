@@ -19,11 +19,10 @@ return new class extends Migration
             $table->text('descripcion');
             $table->decimal('precio', 10, 2);
             $table->integer('stock');
-            $table->string('status')->default('Activo');
-            $table->boolean('activo')->default(true);
-          //$table->date('fecha_activo');
-          //$table->date('fecha_limite');
-            $table->string('imagen')->nullable(); // Puedes cambiar esto según cómo almacenes las imágenes
+            $table->boolean('estado')->default(false);   // para activar de manera manual
+            $table->date('fecha_activo');
+            $table->date('fecha_limite');
+            $table->string('imagen')->nullable(); 
             $table->timestamps();
         });
     }
