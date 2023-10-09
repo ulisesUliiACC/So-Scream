@@ -38,11 +38,11 @@
 
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item ">
-							<a class="nav-link" href="{{route('dashboard')}}">Home</a>
-						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li class="active"><a class="nav-link" href="about.html">About us</a></li>
+						<li class="nav-item active">
+                            <a class="nav-link" href="{{route('dashboard')}}">Home</a>
+                        </li>
+                        <li><a class="nav-link" href="{{route('shop.shop')}}">Shop</a></li>
+                        <li><a class="nav-link" href="{{route('about.index')}}">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
@@ -50,7 +50,7 @@
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 						<li><a class="nav-link" href="#"><img src="imagenes/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="imagenes/cart.svg"></a></li>
+						<li><a class="nav-link" href="{{ route('shop.carrito') }}"><img src="imagenes/cart.svg"></a></li>
 					</ul>
 				</div>
 			</div>

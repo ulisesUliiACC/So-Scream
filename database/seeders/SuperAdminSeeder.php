@@ -15,6 +15,8 @@ class SuperAdminSeeder extends Seeder
      */
     public function run()
     {
+        //Admin::truncate();
+
         Admin::create([
             'name' => 'Super Admin',
             'email' => 'ulisess@test.com',

@@ -18,9 +18,12 @@ class ProductoController extends Controller
     {
         $productos = Producto::paginate(10);
         return view('productos.index',compact('productos'));
+    }
 
+    public function shop(){
+        $productos = Producto::where('estado', true)->get();
         
-        
+        return view('shop.shop',compact('productos'));
     }
 
     /**

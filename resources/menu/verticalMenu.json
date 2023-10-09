@@ -1,43 +1,10 @@
 {
   "menu": [
     {
-      "url": "/",
+      "url": "/admin/dashboard",
       "name": "Dashboard",
       "icon": "menu-icon tf-icons bx bx-home-circle",
       "slug": "dashboard-analytics"
-    },
-    {
-      "name": "Layouts",
-      "icon": "menu-icon tf-icons bx bx-layout",
-      "slug": "layouts",
-      "submenu": [
-        {
-          "url": "/layouts/without-menu",
-          "name": "Without menu",
-          "slug": "layouts-without-menu"
-        },
-        {
-          "url": "/layouts/without-navbar",
-          "name": "Without navbar",
-          "slug": "layouts-without-navbar"
-        },
-        {
-          "url": "/layouts/container",
-          "name": "Container",
-          "slug": "layouts-container"
-        },
-        {
-          "url": "/layouts/fluid",
-          "name": "Fluid",
-          "slug": "layouts-fluid"
-        },
-        {
-          "url": "/layouts/blank",
-          "name": "Blank",
-          "slug": "layouts-blank",
-          "target": "_blank"
-        }
-      ]
     },
     {
       "menuHeader": "Lista de usuarios"
@@ -60,11 +27,23 @@
     {
       "menuHeader": "Administracion de roles"
     },
+   
     {
-      "name": "Roles",
-      "icon": "menu-icon bx bx-user-circle",
-      "slug": "cards-basic",
-      "url": "/admin/roles"
-    }    
+      "name": "Administradores y Roles",
+      "icon": "menu-icon tf-icons bx bx bx-dock-top",
+      "slug": "pages-account-settings",
+      "submenu": [
+        {
+          "url": "/admin/roles",
+          "name": "Creacion de roles",
+          "slug": "pages-account-settings-account"
+        },
+        {
+          "url": "/admin/newAdmins",
+          "name": "nuevos Administradores",
+          "slug": "pages-account-settings-notifications"
+        }
+      ]
+    }
   ]
 }

@@ -45,7 +45,7 @@
           </form>
             <div class="hr"></div>
             <div class="foot-lnk">
-                <a href="#forgot">Registrar una Cuenta</a>
+                <a href="{{url('register')}}">Registrar una Cuenta</a>
             </div>
         </div>
         <div class="sign-up-htm">

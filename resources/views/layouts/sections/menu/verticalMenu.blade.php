@@ -2,18 +2,14 @@
 
   <!-- ! Hide app brand if navbar-full -->
   <div class="app-brand demo">
-    <a href="{{url('/')}}" class="app-brand-link">
-      <span class="app-brand-logo demo">
-        @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
-      </span>
-      <span class="app-brand-text demo menu-text fw-bold ms-2">{{config('variables.templateName')}}</span>
-    </a>
-
+    <h5 class="mb-0">Bienvenido :) <span class="menu-item">{{Auth::guard('admin')->user()->name}}</span></h5>
+   
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-autod-block d-xl-none">
       <i class="bx bx-chevron-left bx-sm align-middle"></i>
     </a>
   </div>
-
+ 
+  
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">

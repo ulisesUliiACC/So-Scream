@@ -17,9 +17,17 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        $this->middleware('permission:ver-rol|crear-rol|editar-rol|borrar-rol', ['only'=>['index']]);
+        $this->middleware('permission:crear-rol', ['only'=>['create','store']]);
+        $this->middleware('permission:editar-rol', ['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-rol', ['only'=>['destroy']]);
+    }
+
     public function index()
     {
-        $roles=Role::paginate(5);
+        $roles=Role::paginate(12);
             return view('admin_roles.index',compact('roles'))
 
             ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
@@ -32,9 +40,8 @@ class RolController extends Controller
      */
     public function create()
     {
-        $permission= Permission::get();
-
-        return view('admin_roles.create',compact('permission'));
+        $permissions = Permission::all();
+        return view('admin_roles.create', compact('permissions'));
     }
 
     /**
@@ -43,16 +50,38 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $this->validate($request,['name' => 'required','permission'=>'required']);
-        $role =Role::create(['name'=>$request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
 
-        return  redirect()->route('roles.index')
-        ->with('success', 'Rol creado con éxito.');
-    }
 
+     public function store(Request $request)
+     {
+         $this->validate($request, [
+             'name' => 'required|unique:roles,name',
+             'permissions' => 'required|array',
+         ]);
+     
+         // Obtén los IDs de permisos seleccionados en el formulario
+         $permissionIds = $request->input('permissions');
+     
+         // Filtra los IDs de permisos para asegurarte de que existan en la base de datos
+         $existingPermissions = Permission::whereIn('id', $permissionIds)->get();
+     
+         // Verifica si todos los permisos seleccionados existen
+         if ($existingPermissions->count() !== count($permissionIds)) {
+             // Alguno de los permisos seleccionados no existe en la base de datos
+             return redirect()->back()->with('error', 'Alguno de los permisos seleccionados no existe.');
+         }
+     
+         // Crea el rol
+         $role = Role::create(['name' => $request->input('name')]);
+     
+         // Asigna los permisos al rol
+         $role->syncPermissions($permissionIds);
+     
+         return redirect()->route('roles.index')->with('success', 'Rol creado con éxito.');
+     }
+     
+    
+    
     /**
      * Display the specified resource.
      *
