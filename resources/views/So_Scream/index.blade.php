@@ -42,7 +42,7 @@
                             <a class="nav-link" href="{{route('dashboard')}}">Home</a>
                         </li>
                         <li><a class="nav-link" href="{{route('shop.shop')}}">Shop</a></li>
-                        <li><a class="nav-link" href="{{route('about.index')}}">About us</a></li>
+                        <li><a class="nav-link" href="{{route('about')}}">About us</a></li>
 						<li><a class="nav-link" href="services.html">Services</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
@@ -54,7 +54,7 @@
 					</ul>
 				</div>
 			</div>
-				
+
 		</nav>
 		<!-- End Header/Navigation -->
 
@@ -65,15 +65,15 @@
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
 								<h1>sobre nosotros </h1>
-                                
+
 								<p class="mb-4"></p>
-								
+
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
                                 <h1> Industria mexicana biotecnológica alimentaria (IMBA)</h1>
-								
+
 							</div>
                             <img src="imagenes/IMBA.png" class="img-fluid">
 						</div>
@@ -82,7 +82,7 @@
 			</div>
 		<!-- End Hero Section -->
 
-		
+
 
 		<!-- Start Why Choose Us Section -->
 		<div class="why-choose-section">
@@ -167,7 +167,7 @@
             <p>Separated they live in.
             Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
             <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
-					</div> 
+					</div>
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
@@ -180,7 +180,7 @@
             Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
             <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
 
-					</div> 
+					</div>
 					<!-- End Column 2 -->
 
 					<!-- Start Column 3 -->
@@ -191,7 +191,7 @@
             <p>Separated they live in.
             Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
             <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
-					</div> 
+					</div>
 					<!-- End Column 3 -->
 
 					<!-- Start Column 4 -->
@@ -204,18 +204,18 @@
             Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
             <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
 
-          
-					</div> 
+
+					</div>
 					<!-- End Column 4 -->
 
-					
+
 
 				</div>
 			</div>
 		</div>
 		<!-- End Team Section -->
 
-		
+
 
 		<!-- Start Testimonial Slider -->
 		<div class="testimonial-section before-footer-section">
@@ -236,7 +236,7 @@
 							</div>
 
 							<div class="testimonial-slider">
-								
+
 								<div class="item">
 									<div class="row justify-content-center">
 										<div class="col-lg-8 mx-auto">
@@ -257,7 +257,7 @@
 
 										</div>
 									</div>
-								</div> 
+								</div>
 								<!-- END item -->
 
 								<div class="item">
@@ -280,7 +280,7 @@
 
 										</div>
 									</div>
-								</div> 
+								</div>
 								<!-- END item -->
 
 								<div class="item">
@@ -303,7 +303,7 @@
 
 										</div>
 									</div>
-								</div> 
+								</div>
 								<!-- END item -->
 
 							</div>
@@ -315,7 +315,7 @@
 		</div>
 		<!-- End Testimonial Slider -->
 
-		
+
 
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
@@ -420,12 +420,12 @@
 
 			</div>
 		</footer>
-		<!-- End Footer Section -->	
+		<!-- End Footer Section -->
 
 
-		
+
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/tiny-slider.js') }}"></script>		
+        <script src="{{ asset('js/tiny-slider.js') }}"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
 	</body>
 

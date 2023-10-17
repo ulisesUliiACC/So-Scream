@@ -21,9 +21,9 @@
 
   <h4 class="py-3 mb-2"></h4>
 
-  <p>A role provided access to predefined menus and features so that depending on <br> assigned role an administrator
-      can have access to what user needs.</p>
+  <p>Asignacion de roles creacion de permisos</p>
   <!-- Role cards -->
+  {{--
   <div class="row g-4">
       <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="card">
@@ -104,26 +104,27 @@
 
   </div>
 </div>
+--}}
   {{--fin del roles--}}
 <div class="card">
   <h5 class="card-header">Creacion de roles a asignar</h5>
    <h5 class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                Lista de productos
+                Lista de Roles Aministrativos
                 <a href="{{ route('roles.create') }}">
                     <button class="btn btn-secondary create-new btn-primary" aria-controls="DataTables_Table_0" type="button">
                         <span>
                             <i class="bx bx-plus me-sm-1"></i>
-                            <span class="d-none d-sm-inline-block">Nuevo producto</span>
+                            <span class="d-none d-sm-inline-block">Nuevo Rol</span>
                         </span>
                     </button>
                 </a>
             </div>
         </h5>
   <div class="table-responsive text-nowrap">
-    
+
     <table class="table">
-      
+
       <thead class="table-light">
         <tr>
           <th>Nombre del rol</th>
@@ -138,7 +139,7 @@
                 <i class="fab fa-angular fa-lg text-danger me-3"></i>
                 <strong>{{ $role->name }}</strong>
             </td>
-                
+
             <td>
               @if ($roles->isEmpty())
               <tr>
@@ -153,8 +154,8 @@
                         @endforeach
                     </ul>
                 @endif
-            </td>                             
-              
+            </td>
+
             <td>
                 <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -164,10 +165,10 @@
                     </div>
                 </div>
             </td>
-        </tr>      
+        </tr>
     @endforeach
-    
-        
+
+
       </tbody>
     </table>
   </div>

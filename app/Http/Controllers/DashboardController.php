@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Producto;
 
-class DashboardController extends Controller
+class
+DashboardController extends Controller
 {
     public function dashboard(){
 
@@ -15,9 +16,13 @@ class DashboardController extends Controller
         $totalProducts = Producto::count();
         return view('admin.dashboard',compact('totalUsers','totalProducts'));
     }
+  public function  about(){
+      return view('about.index');
+  }
 
-    public function carrito()
-    {        
-        return view('shop.carrito');
-    }
+  public function  checkout(){
+
+    return view('shop.checkout.index');
+  }
+
 }

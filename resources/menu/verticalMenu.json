@@ -25,6 +25,12 @@
       "url": "/admin/productos"
     },
     {
+      "name": "ventas ",
+      "icon": "menu-icon bx bx-user-circle",
+      "slug": "cards-basic",
+      "url": "/admin/productos/ventas"
+    },
+    {
       "menuHeader": "Administracion de roles"
     },
    

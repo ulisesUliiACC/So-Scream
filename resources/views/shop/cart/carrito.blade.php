@@ -17,6 +17,8 @@
         <meta name="keywords" content="bootstrap, bootstrap4" />
 
         <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link href="css/tiny-slider.css" rel="stylesheet">
@@ -30,7 +32,7 @@
         <nav class="custom-navbar navbar navbar navbar-expand-md " arial-label="Furni navigation bar">
 
             <div class="container">
-                <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+                <a class="navbar-brand" href="index.html">Bienvenido {{ Auth::user()->name }}<span>.</span></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                     aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarsFurni">
                     <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('dashboard') }}">Home</a>
+                            <a class="nav-link" href="">Home</a>
                         </li>
                         <li><a class="nav-link" href="{{ route('shop.shop') }}">Shop</a></li>
 
@@ -50,9 +52,27 @@
                     </ul>
 
                     <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                        <li>
+                            <ul class="btn-group custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                                <a data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="imagenes/user.svg">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                            </ul>
+                        </li>
                         <li><a class="nav-link" href="#"><img src="imagenes/user.svg"></a></li>
-                        <li><a class="nav-link" href="{{--{{ route('cart.carrito') }}--}}"><img src="imagenes/cart.svg"></a></li>
+                        <li><a class="nav-link" href="{{-- {{ route('cart.carrito') }} --}}"><img src="imagenes/cart.svg"></a></li>
                     </ul>
+                    <!-- Example single danger button -->
+
                 </div>
             </div>
 
@@ -60,25 +80,12 @@
         <!-- End Header/Navigation -->
 
         <!-- Start Hero Section -->
-        <div class="hero">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-5">
-                        <div class="intro-excerpt">
-                            <h1>Cart</h1>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
 
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- End Hero Section -->
-        @if(session('success'))
-          <div class="alert alert-success">
-            {{ session('success') }}
-          </div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
         @endif
 
 
@@ -100,110 +107,115 @@
                                 </thead>
                                 <tbody>
 
-                                  @foreach(Cart::content() as $productos)
-                                    <tr>
-                                        <td class="product-thumbnail">
-                                            <img src="{{asset($productos->options->imagen)}}" alt=" " class="img-fluid">
-                                        </td>
-                                        <td class="product-name">
-                                            <h2 class="h5 text-black">{{$productos->name}}</h2>
-                                        </td>
-                                        <td><h2 class="h5 text-black">{{$productos->price}}</h2></td>
+                                    @foreach (Cart::content() as $productos)
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <img src="{{ asset($productos->options->imagen) }}" alt=" "
+                                                    class="img-fluid">
+                                            </td>
+                                            <td class="product-name">
+                                                <h2 class="h5 text-black">{{ $productos->name }}</h2>
+                                            </td>
+                                            <td>
+                                                <h2 class="h5 text-black">{{ $productos->price }}</h2>
+                                            </td>
 
-                                      </div>
-                                      <td>
-                                        <div class="input-group mb-3 d-flex align-items-center quantity-container"
-                                        style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <a href="{{route('qty-decrement',$productos->rowId)}}" class="btn btn-outline-black decrease"
-                                                type="button">&minus;
-                                            </a>
-                                        </div>
-                                        <input type="text" class="form-control text-center quantity-amount"
-                                            value="{{$productos->qty}}" placeholder=""
-                                            aria-label="Example text with button addon"
-                                            aria-describedby="button-addon1">
-
-                                        <div class="input-group-append">
-                                            <a href="{{route('qty-increment',$productos->rowId)}}" class="btn btn-outline-black increase"
-                                                type="button">&plus;
-                                            </a>
-                                        </div>
-                                      </td>
-                                        </td>
-                                        <td>$49.00</td>
-                                        <td> <div class="input-group-append">
-                                            <a href="{{route('remove-product',$productos->rowId)}}">Eliminar</a>
-
-                                          </div></td>
-                                    </tr>
-                                  @endforeach
-                                </tbody>
-                            </table>
                         </div>
-                    </form>
+                        <td>
+                            <div class="input-group mb-3 d-flex align-items-center quantity-container"
+                                style="max-width: 120px;">
+                                <div class="input-group-prepend">
+                                    <a href="{{ route('qty-decrement', $productos->rowId) }}"
+                                        class="btn btn-outline-black decrease" type="button">&minus;
+                                    </a>
+                                </div>
+                                <input type="text" class="form-control text-center quantity-amount"
+                                    value="{{ $productos->qty }}" placeholder=""
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+
+                                <div class="input-group-append">
+                                    <a href="{{ route('qty-increment', $productos->rowId) }}"
+                                        class="btn btn-outline-black increase" type="button">&plus;
+                                    </a>
+                                </div>
+                        </td>
+                        </td>
+                        <td>${{ $productos->priceTotal }}</td>
+                        <td>
+                            <div class="input-group-append">
+                                <a href="{{ route('remove-product', $productos->rowId) }}">Eliminar</a>
+
+                            </div>
+                        </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                        </table>
                 </div>
+                </form>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row mb-5">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
-                            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row mb-5">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <button class="btn btn-black btn-sm btn-block">Update Cart</button>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label class="text-black h4" for="coupon">Coupon</label>
-                                <p>Enter your coupon code if you have one.</p>
-                            </div>
-                            <div class="col-md-8 mb-3 mb-md-0">
-                                <input type="text" class="form-control py-3" id="coupon"
-                                    placeholder="Coupon Code">
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-black">Apply Coupon</button>
-                            </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
                         </div>
                     </div>
-                    <div class="col-md-6 pl-5">
-                        <div class="row justify-content-end">
-                            <div class="col-md-7">
-                                <div class="row">
-                                    <div class="col-md-12 text-right border-bottom mb-5">
-                                        <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="text-black h4" for="coupon">Coupon</label>
+                            <p>Enter your coupon code if you have one.</p>
+                        </div>
+                        <div class="col-md-8 mb-3 mb-md-0">
+                            <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-black">Apply Coupon</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pl-5">
+                    <div class="row justify-content-end">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-12 text-right border-bottom mb-5">
+                                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <span class="text-black">Subtotal</span>
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <strong class="text-black">$230.00</strong>
-                                    </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <span class="text-black">Subtotal</span>
                                 </div>
-                                <div class="row mb-5">
-                                    <div class="col-md-6">
-                                        <span class="text-black">Total</span>
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <strong class="text-black">$230.00</strong>
-                                    </div>
-                                </div>
+                                <div class="col-md-6 text-right">
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-black btn-lg py-3 btn-block"
-                                            onclick="window.location='checkout.html'">Proceed To Checkout</button>
-                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-md-6">
+                                    <span class="text-black">Total</span>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <strong class="text-black">${{ Cart::priceTotal() }}</strong>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-black btn-lg py-3 btn-block"
+                                        onclick="window.location='{{ route('checkout') }}'">Proceed To Checkout</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
 
@@ -327,7 +339,9 @@
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/tiny-slider.js"></script>
         <script src="js/custom.js"></script>
-    </body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
 
     </html>
 

@@ -75,6 +75,18 @@ class CarritoController extends Controller
     Cart::remove($id);
     return redirect()->back();
   }
+
+
+  public function getTotal()
+  {
+
+    $total = 0;
+    foreach(Cart::content() as $item){
+      $total += $item->qty * $item->price;
+    }
+    return $total;
+  }
+
 }
 
 

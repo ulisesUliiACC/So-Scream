@@ -27,7 +27,7 @@
         <nav class="custom-navbar navbar navbar navbar-expand-md " arial-label="Furni navigation bar">
 
             <div class="container">
-                <a class="navbar-brand" href="index.html">ulises xd<span>.</span></a>
+                <a class="navbar-brand" href="index.html">Que vamos a comprar {{ Auth::user()->name }}<span>.</span></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                     aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +37,10 @@
                 <div class="collapse navbar-collapse" id="navbarsFurni">
                     <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('dashboard')}}">Home</a>
+                            <a class="nav-link" href="">Home</a>
                         </li>
-                        <li><a class="nav-link" href="{{route('shop.shop')}}">Shop</a></li>
-                        <li><a class="nav-link" href="{{route('about.index')}}">About us</a></li>
+                        <li><a class="nav-link" href="{{ route('shop.shop') }}">Shop</a></li>
+
                         <li><a class="nav-link" href="services.html">Services</a></li>
                         <li><a class="nav-link" href="blog.html">Blog</a></li>
                         <li><a class="nav-link" href="contact.html">Contact us</a></li>
@@ -48,15 +48,15 @@
 
                     <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                         <li><a class="nav-link" href="#"><img src="imagenes/user.svg"></a></li>
-                        <li><a class="nav-link" href="{{ route('shop.carrito') }}"><img src="imagenes/cart.svg"></a></li>
+                        <li><a class="nav-link" href="{{ url('carrito') }}"><img src="imagenes/cart.svg"></a></li>
                     </ul>
                 </div>
+
             </div>
 
         </nav>
         <!-- End Header/Navigation -->
-
-        <!-- Start Hero Section -->
+               <!-- Start Hero Section -->
         <div class="hero">
             <div class="container">
                 <div class="row justify-content-between">
@@ -70,57 +70,47 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- End Hero Section -->
+        @if(session('success'))
+
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <strong> {{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+          </div>
+        @endif
+
+        <div class="untree_co-section product-section before-footer-section">
+          <div class="container">
+              <div class="row">
+                  @foreach ($productos as $producto)
+                      <!-- Start Column 4 -->
+                      <div class="col-12 col-md-4 col-lg-3 mb-5">
+                          <div class="product-item">
+                              <img src="{{ asset($producto->imagen) }}" class="img-fluid product-thumbnail">
+                              <div class="product-details">
+                                  <h3 class="product-title">{{ $producto->nombre_producto }}</h3>
+                                  <strong class="product-price">{{ $producto->precio }}</strong>
+                              </div>
+
+                              {{--<a href="{{route('add-to-cart',$producto->id)}}">uliiises </a>--}}
+                              <a href="#" class="agregar-al-carrito" data-product-id="{{ $producto->id }}">Agregar al carrito</a>
 
 
-		<div class="untree_co-section product-section before-footer-section">
-			<div class="container">
-				<div class="row">
-					@foreach ($productos as $producto)
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<div class="product-item">
-							<img src="{{ asset($producto->imagen) }}" class="img-fluid product-thumbnail">
-							<div class="product-details">
-								<h3 class="product-title">{{$producto->nombre_producto}}</h3>
-								<strong class="product-price">{{$producto->precio}}</strong>
-							</div>
-		
-							<span class="icon-cross">
-								<img src="imagenes/cross.svg" class="img-fluid">
-							</span>
-						</div>
-					</div>
-					<!-- End Column 4 -->
-					@endforeach
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="untree_co-section product-section before-footer-section">
-		    <div class="container">
-		      	<div class="row">
-					@foreach ($productos as $producto)
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src="{{ asset($producto->imagen) }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
+                          </div>
+                      </div>
+                      <!-- End Column 4 -->
+                  @endforeach
+              </div>
+          </div>
+      </div>
 
-							<span class="icon-cross">
-								<img src="imagenes/cross.svg" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					@endforeach
-					<!-- End Column 4 -->
-		      	</div>
-		    </div>
-		</div>
-		
+
+
+
+
 
 
         <!-- Start Footer Section -->
@@ -247,3 +237,51 @@
 
     </html>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.agregar-al-carrito').click(function(event) {
+      event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+
+      var productId = $(this).data('product-id');
+      $.ajax({
+        type: 'POST',
+        url: '/add-to-cart/' + productId,
+        data: {
+          _token: '{{ csrf_token() }}'
+        },
+        success: function(response) {
+          // Maneja la respuesta del servidor (por ejemplo, muestra una notificación de éxito).
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Producto agregado al carrito con éxito',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          // Maneja errores si la solicitud AJAX falla.
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un error al agregar el producto al carrito.'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+

@@ -20,12 +20,7 @@ class ProductoController extends Controller
         return view('productos.index',compact('productos'));
     }
 
-    public function shop(){
-        $productos = Producto::where('estado', true)->get();
-        
-        return view('shop.shop',compact('productos'));
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *

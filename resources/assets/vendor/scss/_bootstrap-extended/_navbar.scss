@@ -56,3 +56,19 @@
 .navbar-light hr {
   border-color: $gray-100;
 }
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item:hover .submenu {
+    display: block;
+}
+
+#user-menu:hover .submenu {
+  display: block;
+}

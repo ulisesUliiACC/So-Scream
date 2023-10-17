@@ -11,7 +11,7 @@
 <meta name="keywords" content="bootstrap, bootstrap4" />
 
         <!-- Bootstrap CSS -->
-        
+
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link href="css/tiny-slider.css" rel="stylesheet">
@@ -22,8 +22,8 @@
     <body>
 
         <!-- Start Header/Navigation -->
-        <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
+          <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
             <div class="container">
                 <a class="navbar-brand" href="index.html">So Cream<span>.</span></a>
 
@@ -34,10 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarsFurni">
                     <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('dashboard')}}">Home</a>
+                            <a class="nav-link" href="">Home</a>
                         </li>
                         <li><a class="nav-link" href="{{route('shop.shop')}}">Shop</a></li>
-                        <li><a class="nav-link" href="{{route('about.index')}}">About us</a></li>
+                        <li><a class="nav-link" href="{{route('about')}}">About us</a></li>
                         <li><a class="nav-link" href="services.html">Services</a></li>
                         <li><a class="nav-link" href="blog.html">Blog</a></li>
                         <li><a class="nav-link" href="contact.html">Contact us</a></li>
@@ -45,11 +45,11 @@
 
                     <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                         <li><a class="nav-link" href="{{route('login')}}"><img src="imagenes/user.svg"></a></li>
-                        <li><a class="nav-link" href="{{ route('shop.carrito') }}"><img src="imagenes/cart.svg"></a></li>
+                        <li><a class="nav-link" href="{{ url('carrito') }}"><img src="imagenes/cart.svg"></a></li>
                     </ul>
                 </div>
             </div>
-                
+
         </nav>
         <!-- End Header/Navigation -->
 
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="hero-img-wrap">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <h2 class="mb-4 section-title">Elaborar un sustituto de crema con un % bajo en grasa saturada.</h2>
                         <p class="mb-4">sustitutos de crema contiene aceites vegetales, mientras que la leche líquida en polvo y crema líquida ligera tienen grasas butíricas, la cual, está conformada por distintas cantidades de ácidos grasos</p>
                         <p><a href="shop.html" class="btn">Explore</a></p>
-                    </div> 
+                    </div>
                     <!-- End Column 1 -->
 
                     <!-- Start Column 2 -->
@@ -98,7 +98,7 @@
                                 <img src="" class="img-fluid">
                             </span>
                         </a>
-                    </div> 
+                    </div>
                     <!-- End Column 2 -->
 
                     <!-- Start Column 3 -->
@@ -293,7 +293,7 @@
                             </div>
 
                             <div class="testimonial-slider">
-                                
+
                                 <div class="item">
                                     <div class="row justify-content-center">
                                         <div class="col-lg-8 mx-auto">
@@ -314,7 +314,7 @@
 
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <!-- END item -->
 
                                 <div class="item">
@@ -337,7 +337,7 @@
 
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <!-- END item -->
 
                                 <div class="item">
@@ -360,7 +360,7 @@
 
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <!-- END item -->
 
                             </div>
@@ -425,7 +425,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Blog Section -->	
+        <!-- End Blog Section -->
 
         <!-- Start Footer Section -->
         <footer class="footer-section">
@@ -530,12 +530,12 @@
 
             </div>
         </footer>
-        <!-- End Footer Section -->	
+        <!-- End Footer Section -->
 
-    
-        
+
+
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/tiny-slider.js') }}"></script>		
+        <script src="{{ asset('js/tiny-slider.js') }}"></script>
         <script src="{{ asset('js/custom.js') }}"></script>
 
     </body>
