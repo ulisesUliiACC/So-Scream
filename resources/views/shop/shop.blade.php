@@ -27,7 +27,7 @@
         <nav class="custom-navbar navbar navbar navbar-expand-md " arial-label="Furni navigation bar">
 
             <div class="container">
-                <a class="navbar-brand" href="index.html">Que vamos a comprar {{ Auth::user()->name }}<span>.</span></a>
+                <a class="navbar-brand" href="index.html">Que vamos a comprar<span>.</span></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                     aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">

@@ -90,7 +90,8 @@
 				<div class="row justify-content-between align-items-center">
 					<div class="col-lg-6">
 						<h2 class="section-title">Por qué elegirnos</h2>
-						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+						<p>Nuestro sustituto de crema en polvo es rico en isoflavonas, fibra soluble, entre otros compuestos y minerales como el hierro, y calcio que tienen beneficios para la salud. SO-CREAM es un sustituto de crema para café que brinda cremosidad sin que este pierda sus características.
+            </p>
 
 						<div class="row my-5">
 							<div class="col-6 col-md-6">
@@ -99,7 +100,7 @@
 										<img src="imagenes/truck.svg" alt="Image" class="imf-fluid">
 									</div>
 									<h3>Fast &amp; Envío rápido y gratuito</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<p>es un servicio o promoción que ofrece la entrega de productos o servicios de manera rápida y sin costo adicional para el cliente. Esta opción es especialmente atractiva para los consumidores, ya que les permite recibir sus pedidos en un plazo reducido de tiempo sin incurrir en gastos adicionales de envío</p>
 								</div>
 							</div>
 
@@ -109,7 +110,7 @@
 										<img src="imagenes/bag.svg" alt="Image" class="imf-fluid">
 									</div>
 									<h3>Fácil de comprar</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<p>e enfoca en proporcionar una experiencia al cliente sin obstáculos, lo que puede aumentar la satisfacción del cliente y la probabilidad de que vuelvan a comprar en el futuro</p>
 								</div>
 							</div>
 
@@ -119,7 +120,7 @@
 										<img src="imagenes/support.svg" alt="Image" class="imf-fluid">
 									</div>
 									<h3>oporte 24 horas al día, 7 días a la semana</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<p> servicio de atención al cliente o asistencia que está disponible ininterrumpidamente, sin importar la hora del día o el día de la semana. Esto significa que los clientes pueden obtener ayuda, hacer preguntas o resolver problemas en cualquier momento, incluso durante días festivos y fines de semana.</p>
 								</div>
 							</div>
 
@@ -129,7 +130,7 @@
 										<img src="imagenes/return.svg" alt="Image" class="imf-fluid">
 									</div>
 									<h3>evoluciones sin problemas</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<p>Política clara de devoluciones: La empresa tiene una política de devoluciones fácil de entender y accesible en su sitio web o en la documentación relacionada con el producto o servicio.</p>
 								</div>
 							</div>
 
@@ -161,18 +162,17 @@
 
 					<!-- Start Column 1 -->
 					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-						<img src="imagenes/person_1.jpg" class="img-fluid mb-5">
-						<h3 clas><a href="#"><span class="">Lawson</span> Arnold</a></h3>
+						<img src="integrantes/Michelle.jpg" class="img-fluid mb-5">
+						<h3 clas><a href="#"><span class="">Michelle </span> Michelle,</a></h3>
             <span class="d-block position mb-4">CEO, Founder, Atty.</span>
-            <p>Separated they live in.
-            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            <p>integrante del equipo de So Cream </p>
             <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
 					</div>
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-						<img src="imagenes/person_2.jpg" class="img-fluid mb-5">
+						<img src="integrantes/Michelle.jpg" class="img-fluid mb-5">
 
 						<h3 clas><a href="#"><span class="">Jeremy</span> Walker</a></h3>
             <span class="d-block position mb-4">CEO, Founder, Atty.</span>
@@ -185,7 +185,7 @@
 
 					<!-- Start Column 3 -->
 					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-						<img src="imagenes/person_3.jpg" class="img-fluid mb-5">
+						<img src="integrantes/Michelle.jpg" class="img-fluid mb-5">
 						<h3 clas><a href="#"><span class="">Patrik</span> White</a></h3>
             <span class="d-block position mb-4">CEO, Founder, Atty.</span>
             <p>Separated they live in.
@@ -196,7 +196,7 @@
 
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-						<img src="imagenes/person_4.jpg" class="img-fluid mb-5">
+						<img src="integrantes/Michelle.jpg" class="img-fluid mb-5">
 
 						<h3 clas><a href="#"><span class="">Kathryn</span> Ryan</a></h3>
             <span class="d-block position mb-4">CEO, Founder, Atty.</span>
@@ -322,13 +322,13 @@
 			<div class="container relative">
 
 				<div class="sofa-img">
-					<img src="imagenes/sofa.png" alt="Image" class="img-fluid">
+					<img src="imagenes/soya.jpg" alt="Image" class="img-fluid">
 				</div>
 
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="imagenes/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+							<h3 class="d-flex align-items-center"><span class="me-1"><img src="imagenes/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribete para recivir noticias</span></h3>
 
 							<form action="#" class="row g-3">
 								<div class="col-auto">
@@ -350,8 +350,9 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">So Scream<span>.</span></a></div>
+						<p class="mb-4">Un sustituto de crema en polvo a base de soya y avena para café instantáneo, con un nivel bajo de grasas saturadas (aprox. 3%) lo cual permitirá que sea soluble en agua fría y caliente. Dicho producto tendrá la capacidad de brindar mejoras en la salud del consumidor.
+            </p>
 
 						<ul class="list-unstyled custom-social">
 							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -361,43 +362,6 @@
 						</ul>
 					</div>
 
-					<div class="col-lg-8">
-						<div class="row links-wrap">
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
 
 				</div>
 
