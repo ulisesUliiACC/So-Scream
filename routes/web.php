@@ -10,8 +10,10 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Carrito\CarritoController;
 use App\Http\Controllers\Carrito\ProductosCController;
+use App\Http\Controllers\Gateways\PaypalController;
 use App\Models\Admin;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\NewAdmins\NewAdminsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,17 +51,8 @@ Route::get('about',[DashboardController::class,'about'])->name('about');
     Route::get('/admin/roles',[RolController::class,'index'])->name('roles.index');
     Route::get('/admin/roles/create',[RolController::class,'create'])->name('roles.create');
     Route::post('/admin/roles/create',[RolController::class,'store'])->name('roles.store');
-
-
-    /* vita de  detalles de ventas  */
-
-//    Route::get('/admin/productos/detalles');
-
-    /* vita de  detalles de ventas  */
-
-    /* vista de  creacion de admins */
-
     Route::get('/admin/newAdmins',[UsuarioController::class,'newIndex'])->name('newAdmins.index');
+    Route::get('/admin/newAdmins',[NewAdminsController::class,'create'])->name('newAdmins.create');
 
   });
 
@@ -67,6 +60,10 @@ Route::get('about',[DashboardController::class,'about'])->name('about');
     Route::middleware('auth')->group(function () {
       Route::get('/carrito', [CarritoController::class, 'carrito'])->name('cart.carrito');
 
+        /* paypal config*/
+      Route::post('paypal/payment',[PaypalController::class,'payment'])->name('paypal.payment');
+      Route::get('paypal/succes',[PaypalController::class,'success'])->name('paypal.success');
+      Route::get('paypal/cancel',[PaypalController::class,'cancel'])->name('paypal.cancel');
     });
     /* ruta fin de usuario */
 

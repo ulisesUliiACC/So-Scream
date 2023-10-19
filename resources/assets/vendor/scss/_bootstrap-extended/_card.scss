@@ -187,3 +187,20 @@
     }
   }
 }
+.contenedor {
+  width: 10px; /* Ancho deseado */
+  height: 10px; /* Alto deseado */
+  overflow: hidden; /* Para recortar la imagen si es necesario */
+}
+.imagen-ajustada {
+  width: 100%; /* La imagen ocupará el 100% del contenedor */
+  height: auto; /* Mantendrá la relación de aspecto original */
+}
+
+.card-img-top {
+  object-fit: cover;
+  width: 90px; /* Cambia el tamaño a 90x90 píxeles */
+  height: 50px;
+}
+
+
