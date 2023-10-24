@@ -1,543 +1,576 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Untree.co">
-<link rel="shortcut icon" href="favicon.png">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
-<meta name="description" content="" />
-<meta name="keywords" content="bootstrap, bootstrap4" />
+	<!-- title -->
+	<title>IMBA | So-Cream</title>
 
-        <!-- Bootstrap CSS -->
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="assetss/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assetss/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="assetss/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="assetss/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="assetss/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="assetss/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assetss/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="assetss/css/responsive.css">
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <link href="css/tiny-slider.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <title>so Scream </title>
-    </head>
+</head>
+<body>
 
-    <body>
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
 
-        <!-- Start Header/Navigation -->
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="assetss/img/logo.png" alt="">
+							</a>
+						</div>
+						<!-- logo -->
 
-          <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">So Cream<span>.</span></a>
+					<!-- menu start -->
+<nav class="main-menu">
+  <ul>
+      <li><a href="{{url('/')}}">Inicio</a></li>
+      <li><a href="{{route('about')}}">Nosotros</a></li>
+      <li><a href="news.html">Blog</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+      <li><a href="{{route('shop.shop')}}">Shop</a></li>
+      <li>
+          <div class="header-icons">
+              <a class="shopping-cart" href="{{route('cart.carrito')}}"><i class="fas fa-shopping-cart"></i></a>
+              <a class="user-icon" id="user-icon"><i class='fas fa-user'></i></a>
+              <!-- Opciones de usuario -->
+              <div class="user-options" id="user-options">
+                  <ul>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                      <li><a href="{{route('login')}}">Iniciar Seccion</a></li>
 
-                <div class="collapse navbar-collapse" id="navbarsFurni">
-                    <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="">Home</a>
-                        </li>
-                        <li><a class="nav-link" href="{{route('shop.shop')}}">Shop</a></li>
-                        <li><a class="nav-link" href="{{route('about')}}">About us</a></li>
-                        <li><a class="nav-link" href="services.html">Services</a></li>
-                        <li><a class="nav-link" href="blog.html">Blog</a></li>
-                        <li><a class="nav-link" href="contact.html">Contact us</a></li>
-                    </ul>
+                      <li><a href="#">Perfil</a></li>
+                      <li><a href="#">Configuración</a></li>
 
-                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                        <li><a class="nav-link" href="{{route('login')}}"><img src="imagenes/user.svg"></a></li>
-                        <li><a class="nav-link" href="{{ url('carrito') }}"><img src="imagenes/cart.svg"></a></li>
-                    </ul>
-                </div>
-            </div>
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                      <li><a  href="{{route('logout')}}" onclick="event.preventDefault();
+                        this.closest('form').submit();">Cerrar sesión</a></li>
+                      </form>
 
-        </nav>
-        <!-- End Header/Navigation -->
+                  </ul>
+              </div>
+          </div>
+      </li>
+  </ul>
+</nav>
+<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+<div class="mobile-menu"></div>
+<!-- menu end -->
 
-        <!-- Start Hero Section -->
-            <div class="hero">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-lg-5">
-                            <div class="intro-excerpt">
-                                <h1>suplemento de <span clsas="d-block">Soya</span></h1>
-                                <p class="mb-4">sustituto de crema en polvo a base de soya y avena para café instantáneo</p>
-                                <p><a href="" class="btn btn-secondary me-2">Comprar Ahora</a><a href="#" class="btn btn-white-outline">Ver mas</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Buscador:</h3>
+							<input type="text" placeholder="Texto">
+							<button type="submit">Buscar<i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search area -->
+
+	<!-- hero area -->
+	<div class="hero-area hero-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 offset-lg-2 text-center">
+					<div class="hero-text">
+						<div class="hero-text-tablecell">
+							<p class="subtitle">Industria Mexicana de Biotecnología Alimentaria</p>
+							<h1>So-Cream</h1>
+							<div class="hero-btns">
+								<a href="shop.html" class="boxed-btn">Comprar ahora</a>
+								<a href="contact.html" class="bordered-btn">Contactanos</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end hero area -->
+
+	<!-- features list section -->
+	<div class="list-section pt-80 pb-80">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+					<div class="list-box d-flex align-items-center">
+						<div class="list-icon">
+							<i class="fas fa-users"></i>
+						</div>
+						<div class="content">
+							<h3>Misión</h3>
+							<p>Ofrecer alimentos saludables y deliciosos mediante la ciencia y la naturaleza.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+					<div class="list-box d-flex align-items-center">
+						<div class="list-icon">
+							<i class="fas fa-eye"></i>
+						</div>
+						<div class="content">
+							<h3>Visión</h3>
+							<p>Transformar la industria alimentaria con innovación biotecnológica.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="list-box d-flex justify-content-start align-items-center">
+						<div class="list-icon">
+							<i class="fas fa-bullseye"></i>
+						</div>
+						<div class="content">
+							<h3>Objetivo</h3>
+							<p>Mejorar la nutrición y la experiencia culinaria de nuestros clientes.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- end features list section -->
+
+	<!-- product section -->
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3><span class="orange-text">Nuestro</span> Producto</h3>
+						<p>So-Cream: Haz de la cremosidad tú felicidad</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+						</div>
+						<h3>Strawberry</h3>
+						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
+						</div>
+						<h3>Berry</h3>
+						<p class="product-price"><span>Per Kg</span> 70$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
+						</div>
+						<h3>Lemon</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product section -->
+
+	<!-- cart banner section -->
+	<!-- <section class="cart-banner pt-100 pb-100">
+    	<div class="container">
+        	<div class="row clearfix"> -->
+            	<!--Image Column-->
+            	<!-- <div class="image-column col-lg-6">
+                	<div class="image">
+                    	<div class="price-box">
+                        	<div class="inner-price">
+                                <span class="price">
+                                    <strong>30%</strong> <br> off per kg
+                                </span>
                             </div>
                         </div>
-                        <div class="col-lg-7">
-                            <div class="hero-img-wrap">
-
-                            </div>
-                        </div>
+                    	<img src="assets/img/a.jpg" alt="">
                     </div>
-                </div>
-            </div>
-        <!-- End Hero Section -->
-
-        <!-- Start Product Section -->
-        <div class="product-section">
-            <div class="container">
-                <div class="row">
-
-                    <!-- Start Column 1 -->
-                    <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-                        <h2 class="mb-4 section-title">Elaborar un sustituto de crema con un % bajo en grasa saturada.</h2>
-                        <p class="mb-4">sustitutos de crema contiene aceites vegetales, mientras que la leche líquida en polvo y crema líquida ligera tienen grasas butíricas, la cual, está conformada por distintas cantidades de ácidos grasos</p>
-                        <p><a href="shop.html" class="btn">Explore</a></p>
-                    </div>
-                    <!-- End Column 1 -->
-
-                    <!-- Start Column 2 -->
-                    <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                        <a class="product-item" href="cart.html">
-                            <img src="imagenes/So-Cream.jpg" class="img-fluid product-thumbnail">
-                            <h3 class="product-title">crema de soya</h3>
-                            <strong class="product-price">$50.00</strong>
-
-                            <span class="icon-cross">
-                                <img src="" class="img-fluid">
-                            </span>
-                        </a>
-                    </div>
-                    <!-- End Column 2 -->
-
-                    <!-- Start Column 3 -->
-                    <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                        <a class="product-item" href="cart.html">
-                            <img src="imagenes/cream.jpg" class="img-fluid product-thumbnail">
-                            <h3 class="product-title">soya</h3>
-                            <strong class="product-price">$78.00</strong>
-
-                            <span class="icon-cross">
-                                <img src="images/cross.svg" class="img-fluid">
-                            </span>
-                        </a>
-                    </div>
-                    <!-- End Column 3 -->
-
-                    <!-- Start Column 4 -->
-                    <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-                        <a class="product-item" href="cart.html">
-                            <img src="imagenes/taza.jpeg" class="img-fluid product-thumbnail">
-                            <h3 class="product-title">Ergonomic Chair</h3>
-                            <strong class="product-price">$43.00</strong>
-
-                            <span class="icon-cross">
-                                <img src="images/cross.svg" class="img-fluid">
-                            </span>
-                        </a>
-                    </div>
-                    <!-- End Column 4 -->
-
+                </div> -->
+                <!--Content Column-->
+                <!-- <div class="content-column col-lg-6">
+					<h3><span class="orange-text">Deal</span> of the month</h3>
+                    <h4>Hikan Strwaberry</h4>
+                    <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div> -->
+                    <!--Countdown Timer-->
+                    <!-- <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
+                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
         </div>
-        <!-- End Product Section -->
+    </section> -->
+    <!-- end cart banner section -->
 
-        <!-- Start Why Choose Us Section -->
-        <div class="why-choose-section">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-6">
-                        <h2 class="section-title">Why Choose Us</h2>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+	<!-- testimonail-section -->
+	<div class="testimonail-section mt-150 mb-150">
+		<div class="container">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">-</span> Testimonios</h3>
+					<p>Unete a nuestra lista de clientes satisfechos.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="testimonial-sliders">
+						<div class="single-testimonial-slider">
+							<div class="client-avater">
+								<img src="assets/img/avaters/avatar1.png" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>Alejandra Guzman <span>Consumidora local</span></h3>
+								<p class="testimonial-body">
+									" ¡IMBA superó mis expectativas! Sus productos son una explosión de sabores innovadores. ¡Una experiencia gastronómica inigualable que cautiva los sentidos! ¡Definitivamente, IMBA es mi elección para alimentos biotecnológicos de alta calidad! "
+								</p>
+								<div class="last-icon">
+									<i class="fas fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+						<div class="single-testimonial-slider">
+							<div class="client-avater">
+								<img src="assets/img/avaters/avatar2.png" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>Luis Miguel <span>Consumidor local</span></h3>
+								<p class="testimonial-body">
+									" IMBA ha cambiado mi forma de ver la comida. Sus productos no solo son deliciosos, sino también nutritivos y llenos de innovación. Cada bocado es una aventura culinaria que espero con ansias. ¡Altamente recomendado para los amantes de la buena comida y la innovación gastronómica! "
+								</p>
+								<div class="last-icon">
+									<i class="fas fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+						<div class="single-testimonial-slider">
+							<div class="client-avater">
+								<img src="assets/img/avaters/avatar3.png" alt="">
+							</div>
+							<div class="client-meta">
+								<h3>Alejandro Fernandez <span>Consumidor local</span></h3>
+								<p class="testimonial-body">
+									" ¡Increíble calidad y sabor excepcional! IMBA ha elevado el estándar en la industria alimentaria. Sus productos son una fusión perfecta entre ciencia y sabor. Mi familia y yo estamos enamorados de sus creaciones únicas. ¡Gracias IMBA por hacer de nuestras comidas una experiencia extraordinaria! "
+								</p>
+								<div class="last-icon">
+									<i class="fas fa-quote-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end testimonail-section -->
 
-                        <div class="row my-5">
-                            <div class="col-6 col-md-6">
-                                <div class="feature">
-                                    <div class="icon">
-                                        <img src="images/truck.svg" alt="Image" class="imf-fluid">
-                                    </div>
-                                    <h3>Fast &amp; Free Shipping</h3>
-                                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                                </div>
-                            </div>
+	<!-- advertisement section -->
+	<div class="abt-section mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="abt-bg">
+						<a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12">
+					<div class="abt-text">
+						<p class="top-sub">Desde 2022</p>
+						<h2>Nosotros somos <span class="orange-text">IMBA</span></h2>
+						<p>Descubre IMBA (Industria Mexicana de Biotecnología Alimentaria), donde la innovación se encuentra con el
+							sabor. Somos apasionados por crear alimentos biotecnológicos excepcionales que equilibran nutrición y
+							deliciosos sabores, transformando tu experiencia culinaria con cada bocado.</p>
+						<a href="about.html" class="boxed-btn mt-4">Saber más</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end advertisement section -->
 
-                            <div class="col-6 col-md-6">
-                                <div class="feature">
-                                    <div class="icon">
-                                        <img src="images/bag.svg" alt="Image" class="imf-fluid">
-                                    </div>
-                                    <h3>Easy to Shop</h3>
-                                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-6 col-md-6">
-                                <div class="feature">
-                                    <div class="icon">
-                                        <img src="images/support.svg" alt="Image" class="imf-fluid">
-                                    </div>
-                                    <h3>24/7 Support</h3>
-                                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-6 col-md-6">
-                                <div class="feature">
-                                    <div class="icon">
-                                        <img src="images/return.svg" alt="Image" class="imf-fluid">
-                                    </div>
-                                    <h3>Hassle Free Returns</h3>
-                                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="img-wrap">
-                            <img src="images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+	<!-- shop banner -->
+	<section class="shop-banner">
+    	<div class="container">
+        	<h3>Haz de la cremosidad <br> tu <span class="orange-text">felicidad.</span></h3>
+            <div class="sale-percent"><span>Solo <br> por</span> $80<span>mxn</span></div>
+            <a href="shop.html" class="cart-btn btn-lg">Comprar ahora</a>
         </div>
-        <!-- End Why Choose Us Section -->
+    </section>
+	<!-- end shop banner -->
 
-        <!-- Start We Help Section -->
-        <div class="we-help-section">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-lg-7 mb-5 mb-lg-0">
-                        <div class="imgs-grid">
-                            <div class="grid grid-1"><img src="images/img-grid-1.jpg" alt="Untree.co"></div>
-                            <div class="grid grid-2"><img src="images/img-grid-2.jpg" alt="Untree.co"></div>
-                            <div class="grid grid-3"><img src="images/img-grid-3.jpg" alt="Untree.co"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 ps-lg-5">
-                        <h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
-                        <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+	<!-- latest news -->
+	<div class="latest-news pt-150 pb-150">
+		<div class="container">
 
-                        <ul class="list-unstyled custom-list my-4">
-                            <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                            <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                            <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                            <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                        </ul>
-                        <p><a herf="#" class="btn">Explore</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End We Help Section -->
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3><span class="orange-text">Nuestro</span> Blog</h3>
+						<p>Enterate de las últimas actualizaciones.</p>
+					</div>
+				</div>
+			</div>
 
-        <!-- Start Popular Product -->
-        <div class="popular-product">
-            <div class="container">
-                <div class="row">
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+							</p>
+							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+							</p>
+							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
+							<p class="blog-meta">
+								<span class="author"><i class="fas fa-user"></i> Admin</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+							</p>
+							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
+							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<a href="news.html" class="boxed-btn">Ver más</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end latest news -->
 
-                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="product-item-sm d-flex">
-                            <div class="thumbnail">
-                                <img src="images/product-1.png" alt="Image" class="img-fluid">
-                            </div>
-                            <div class="pt-3">
-                                <h3>Nordic Chair</h3>
-                                <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
-                                <p><a href="#">Read More</a></p>
-                            </div>
-                        </div>
-                    </div>
+	<!-- logo carousel -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="col-lg-8 offset-lg-2 text-center">
+						<div class="section-title">
+							<h3><span class="orange-text">A la venta</span> en:</h3>
+							<p>Visita los puntos de venta autorizados</p>
+						</div>
+					</div>
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end logo carousel -->
 
-                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="product-item-sm d-flex">
-                            <div class="thumbnail">
-                                <img src="images/product-2.png" alt="Image" class="img-fluid">
-                            </div>
-                            <div class="pt-3">
-                                <h3>Kruzo Aero Chair</h3>
-                                <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
-                                <p><a href="#">Read More</a></p>
-                            </div>
-                        </div>
-                    </div>
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">IMBA</h2>
+						<p>Industria Mexicana de Biotecnología Alimentaria. <br> Lideres de productos innovadores y saludables
+							en el campo de la biotecnología alimentaria.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Ubicanos</h2>
+						<ul>
+							<li>Paraje Lomas de San Juan s/n, de, Méx.</li>
+							<li>IMBA@support.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Directorio</h2>
+						<ul>
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="about.html">Nosotros</a></li>
+							<li><a href="news.html">Blog</a></li>
+							<li><a href="contact.html">Contacto</a></li>
+							<li><a href="services.html">Shop</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribete</h2>
+						<p>Suscríbase a nuestra lista de correo para recibir las últimas actualizaciones.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
 
-                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-                        <div class="product-item-sm d-flex">
-                            <div class="thumbnail">
-                                <img src="images/product-3.png" alt="Image" class="img-fluid">
-                            </div>
-                            <div class="pt-3">
-                                <h3>Ergonomic Chair</h3>
-                                <p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
-                                <p><a href="#">Read More</a></p>
-                            </div>
-                        </div>
-                    </div>
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2023 - <a href="">Code Strokes</a>,  All Rights Reserved.<br>
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
 
-                </div>
-            </div>
-        </div>
-        <!-- End Popular Product -->
+	<!-- jquery -->
+	<script src="assetss/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="assetss/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="assetss/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="assetss/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="assetss/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="assetss/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="assetss/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="assetss/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="assetss/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="assetss/js/main.js"></script>
 
-        <!-- Start Testimonial Slider -->
-        <div class="testimonial-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 mx-auto text-center">
-                        <h2 class="section-title">Testimonials</h2>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="testimonial-slider-wrap text-center">
-
-                            <div id="testimonial-nav">
-                                <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-                                <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-                            </div>
-
-                            <div class="testimonial-slider">
-
-                                <div class="item">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8 mx-auto">
-
-                                            <div class="testimonial-block text-center">
-                                                <blockquote class="mb-5">
-                                                    <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                                </blockquote>
-
-                                                <div class="author-info">
-                                                    <div class="author-pic">
-                                                        <img src="imagenes/person-1.png" alt="Maria Jones" class="img-fluid">
-                                                    </div>
-                                                    <h3 class="font-weight-bold">Maria Jones</h3>
-                                                    <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-
-                                <div class="item">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8 mx-auto">
-
-                                            <div class="testimonial-block text-center">
-                                                <blockquote class="mb-5">
-                                                    <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                                </blockquote>
-
-                                                <div class="author-info">
-                                                    <div class="author-pic">
-                                                        <img src="imagenes/person-1.png" alt="Maria Jones" class="img-fluid">
-                                                    </div>
-                                                    <h3 class="font-weight-bold">Maria Jones</h3>
-                                                    <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-
-                                <div class="item">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8 mx-auto">
-
-                                            <div class="testimonial-block text-center">
-                                                <blockquote class="mb-5">
-                                                    <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                                </blockquote>
-
-                                                <div class="author-info">
-                                                    <div class="author-pic">
-                                                        <img src="imagenes/person-1.png" alt="Maria Jones" class="img-fluid">
-                                                    </div>
-                                                    <h3 class="font-weight-bold">Maria Jones</h3>
-                                                    <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Testimonial Slider -->
-
-        <!-- Start Blog Section -->
-        <div class="blog-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md-6">
-                        <h2 class="section-title">Recent Blog</h2>
-                    </div>
-                    <div class="col-md-6 text-start text-md-end">
-                        <a href="#" class="more">View All Posts</a>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-                        <div class="post-entry">
-                            <a href="#" class="post-thumbnail"><img src="images/post-1.jpg" alt="Image" class="img-fluid"></a>
-                            <div class="post-content-entry">
-                                <h3><a href="#">First Time Home Owner Ideas</a></h3>
-                                <div class="meta">
-                                    <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-                        <div class="post-entry">
-                            <a href="#" class="post-thumbnail"><img src="images/post-2.jpg" alt="Image" class="img-fluid"></a>
-                            <div class="post-content-entry">
-                                <h3><a href="#">How To Keep Your Furniture Clean</a></h3>
-                                <div class="meta">
-                                    <span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-                        <div class="post-entry">
-                            <a href="#" class="post-thumbnail"><img src="images/post-3.jpg" alt="Image" class="img-fluid"></a>
-                            <div class="post-content-entry">
-                                <h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
-                                <div class="meta">
-                                    <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- End Blog Section -->
-
-        <!-- Start Footer Section -->
-        <footer class="footer-section">
-            <div class="container relative">
-
-                <div class="sofa-img">
-                    <img src="images/sofa.png" alt="Image" class="img-fluid">
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="subscription-form">
-                            <h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
-
-                            <form action="#" class="row g-3">
-                                <div class="col-auto">
-                                    <input type="text" class="form-control" placeholder="Enter your name">
-                                </div>
-                                <div class="col-auto">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                </div>
-                                <div class="col-auto">
-                                    <button class="btn btn-primary">
-                                        <span class="fa fa-paper-plane"></span>
-                                    </button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-5 mb-5">
-                    <div class="col-lg-4">
-                        <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-                        <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
-
-                        <ul class="list-unstyled custom-social">
-                            <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                            <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                            <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                            <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-8">
-                        <div class="row links-wrap">
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">Knowledge base</a></li>
-                                    <li><a href="#">Live chat</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Jobs</a></li>
-                                    <li><a href="#">Our team</a></li>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Nordic Chair</a></li>
-                                    <li><a href="#">Kruzo Aero</a></li>
-                                    <li><a href="#">Ergonomic Chair</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="border-top copyright">
-                    <div class="row pt-4">
-                        <div class="col-lg-6">
-                            <p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
-                        </div>
-
-                        <div class="col-lg-6 text-center text-lg-end">
-                            <ul class="list-unstyled d-inline-flex ms-auto">
-                                <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </footer>
-        <!-- End Footer Section -->
-
-
-
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/tiny-slider.js') }}"></script>
-        <script src="{{ asset('js/custom.js') }}"></script>
-
-    </body>
-
+</body>
 </html>
+<script>
+  document.getElementById('user-icon').addEventListener('click', function() {
+    var userOptions = document.getElementById('user-options');
+    if (userOptions.style.display === 'none' || userOptions.style.display === '') {
+        userOptions.style.display = 'block';
+    } else {
+        userOptions.style.display = 'none';
+    }
+});
+
+// Cerrar las opciones de usuario si se hace clic fuera de ellas
+document.addEventListener('click', function(event) {
+    var userOptions = document.getElementById('user-options');
+    var userIcon = document.getElementById('user-icon');
+
+    if (event.target !== userIcon && event.target !== userOptions) {
+        userOptions.style.display = 'none';
+    }
+});
+
+</script>

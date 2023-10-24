@@ -1,82 +1,47 @@
-@extends('layouts/blankLayout')
+<x-guest-layout>
+  <!-- Session Status -->
+  <x-auth-session-status class="mb-4" :status="session('status')" />
 
-@section('title', 'Login Basic - Pages')
+  <form method="POST" action="{{ route('login') }}">
+      @csrf
 
-@section('page-style')
-    <!-- Page -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}">
-@endsection
+      <!-- Email Address -->
+      <div>
+          <x-input-label for="email" :value="__('Email')" />
+          <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+          <x-input-error :messages="$errors->get('email')" class="mt-2" />
+      </div>
 
-@section('content')
+      <!-- Password -->
+      <div class="mt-4">
+          <x-input-label for="password" :value="__('Password')" />
 
+          <x-text-input id="password" class="block mt-1 w-full"
+                          type="password"
+                          name="password"
+                          required autocomplete="current-password" />
 
-    <!DOCTYPE html>
-    <html>
+          <x-input-error :messages="$errors->get('password')" class="mt-2" />
+      </div>
 
-    <head>
-        <div class="login-wrap">
-            <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
-                    class="tab">So-Cream</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
-                    class="tab"></label>
-                <div class="login-form">
-                    <link rel="stylesheet" type="text/css" href="css/estilo.css">
-    </head>
+      <!-- Remember Me -->
+      <div class="block mt-4">
+          <label for="remember_me" class="inline-flex items-center">
+              <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+              <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+          </label>
+      </div>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <div class="sign-in-htm">
-            <div class="group">
-                <label for="user" class="label">Usuario</label>
-                <input id="user" type="text" class="input" name="email">
-            </div>
-            <div class="group">
-                <label for="pass" class="label">Contraseña</label>
-                <input id="password" name="password" class="input" data-type="password">
-            </div>
-            <div class="group">
-                <input id="check" type="checkbox" class="check" checked>
+      <div class="flex items-center justify-end mt-4">
+          @if (Route::has('password.request'))
+              <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                  {{ __('Forgot your password?') }}
+              </a>
+          @endif
 
-            </div>
-            <div class="group">
-                <input type="submit" class="button" value="Iniciar Sesion">
-            </div>
-          </form>
-            <div class="hr"></div>
-            <div class="foot-lnk">
-                <a href="{{url('register')}}">Registrar una Cuenta</a>
-            </div>
-        </div>
-        <div class="sign-up-htm">
-            <div class="group">
-                <label for="user" class="label">Username</label>
-                <input id="user" type="text" class="input">
-            </div>
-            <div class="group">
-                <label for="pass" class="label">Contraseña</label>
-                <input id="pass" type="password" class="input" data-type="password">
-            </div>
-            <div class="group">
-                <label for="pass" class="label">Repita la contraseña</label>
-                <input id="pass" type="password" class="input" data-type="password">
-            </div>
-            <div class="group">
-                <label for="pass" class="label">Correo Electronico</label>
-                <input id="pass" type="text" class="input">
-            </div>
-            <div class="group">
-                <input type="submit" class="button" value="Sign Up">
-            </div>
-            <div class="hr"></div>
-            <div class="foot-lnk">
-                <label for="tab-1">Already Member?</a>
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
-
-    </html>
-    
-@endsection
+          <x-primary-button class="ml-3">
+              {{ __('Log in') }}
+          </x-primary-button>
+      </div>
+  </form>
+</x-guest-layout>

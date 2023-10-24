@@ -32,13 +32,13 @@ class RegisteredUserController extends Controller
     {
        //dd($request->all()); // Esto mostrará todos los datos de la solicitud.
 
-       
+
        $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'apellido_P' => ['required', 'string', 'max:255'],
         'apellido_M' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-    ]);           
+    ]);
         $user = User::create([
             'name' => $request->name,
             'apellido_P' => $request->apellido_P,

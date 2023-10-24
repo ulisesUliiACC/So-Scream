@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Admin;
-use App\Models\User;
+
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
-
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Validator;
 
 class NewAdminsController extends Controller
 {
@@ -25,13 +25,13 @@ class NewAdminsController extends Controller
 
     public function index(Admin $model)
     {
-      $admins = User::paginate(5);
-      $admin = User::count();
+     $admins = Admin::paginate(5);
+      $admin = Admin::count();
       $role = Role::count();
 
       return view('New_Admins.index', compact('admins'), [
         'role' => $role,
-        'admin' => $admin
+        'admin' =>$admin
     ])
     ->with('i', (request()->input('page', 1) - 1) * $admins->perPage());
 
@@ -41,24 +41,20 @@ class NewAdminsController extends Controller
     {
 
       $roles = Role::pluck('name','name')->all();
-      return view('New_Admins.created',compact('roles'));
+      return view('New_Admins.create',compact('roles'));
 
     }
     public function store(Request $request)
     {
-      $this->validate($request, [
-        'name' => 'required',
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|same:confirm-password',
-        'roles' => 'required'
-    ]);
+     // dd($request->all());
+
 
     $input = $request->all();
     $input['password'] = Hash::make($input['password']);
-    $user = User::create($input);
-    $user->assignRole($request->input('roles'));
+    $admin = Admin::create($input);
+    $admin->assignRole($request->input('roles'));
 
-    return redirect()->route('New_Admins.index')
+    return redirect()->route('newAdmins.index')
         ->with('success', 'Usuario creado con éxito.');
 
   }

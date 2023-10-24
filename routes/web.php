@@ -51,8 +51,10 @@ Route::get('about',[DashboardController::class,'about'])->name('about');
     Route::get('/admin/roles',[RolController::class,'index'])->name('roles.index');
     Route::get('/admin/roles/create',[RolController::class,'create'])->name('roles.create');
     Route::post('/admin/roles/create',[RolController::class,'store'])->name('roles.store');
+
     Route::get('/admin/newAdmins',[UsuarioController::class,'newIndex'])->name('newAdmins.index');
-    Route::get('/admin/newAdmins',[NewAdminsController::class,'create'])->name('newAdmins.create');
+    Route::get('/admin/newAdmins/create',[NewAdminsController::class,'create'])->name('newAdmins.create');
+    Route::post('/admin/newAdmins/create',[NewAdminsController::class,'store'])->name('newAdmins.store');
 
   });
 
@@ -64,6 +66,18 @@ Route::get('about',[DashboardController::class,'about'])->name('about');
       Route::post('paypal/payment',[PaypalController::class,'payment'])->name('paypal.payment');
       Route::get('paypal/succes',[PaypalController::class,'success'])->name('paypal.success');
       Route::get('paypal/cancel',[PaypalController::class,'cancel'])->name('paypal.cancel');
+
+
+      /* */
+
+      Route::post('add-to-cart/{id}', [CarritoController::class, 'addToCart'])->name('add-to-cart');
+
+    Route::get('qty-increment/{rowId}',[CarritoController::class,'qtyIncrement'])->name('qty-increment');
+    Route::get('qty-decrement/{rowId}',[CarritoController::class,'qtyDecrement'])->name('qty-decrement');
+    Route::get('remove-product/{rowId}',[CarritoController::class,'removeProduct'])->name('remove-product');
+
+
+    Route::get('/checkout',[DashboardController::class,'checkout'])->name('checkout');
     });
     /* ruta fin de usuario */
 
@@ -72,14 +86,7 @@ Route::get('about',[DashboardController::class,'about'])->name('about');
 
     Route::get('/productos',[CarritoController::class,'index'])->name('shop.shop');
 
-    Route::post('add-to-cart/{id}', [CarritoController::class, 'addToCart'])->name('add-to-cart');
 
-    Route::get('qty-increment/{rowId}',[CarritoController::class,'qtyIncrement'])->name('qty-increment');
-    Route::get('qty-decrement/{rowId}',[CarritoController::class,'qtyDecrement'])->name('qty-decrement');
-    Route::get('remove-product/{rowId}',[CarritoController::class,'removeProduct'])->name('remove-product');
-
-
-    Route::get('/checkout',[DashboardController::class,'checkout'])->name('checkout');
 
 
 

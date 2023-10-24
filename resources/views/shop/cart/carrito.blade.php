@@ -4,345 +4,400 @@
 
 @section('content')
 
-    <!doctype html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="author" content="Untree.co">
-        <link rel="shortcut icon" href="favicon.png">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
-        <meta name="description" content="" />
-        <meta name="keywords" content="bootstrap, bootstrap4" />
+	<!-- title -->
+	<title>IMBA | Tu Compra</title>
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <link href="css/tiny-slider.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <title>so Scream </title>
-    </head>
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="assetss/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assetss/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="assetss/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="assetss/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="assetss/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="assetss/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assetss/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="assetss/css/responsive.css">
 
-    <body>
+</head>
 
-        <!-- Start Header/Navigation -->
-        <nav class="custom-navbar navbar navbar navbar-expand-md " arial-label="Furni navigation bar">
+<body>
 
-            <div class="container">
-                <a class="navbar-brand" href="index.html">Bienvenido {{ Auth::user()->name }}<span>.</span></a>
+	<!--PreLoader-->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
-                    aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="assets/img/logo.png" alt="">
+							</a>
+						</div>
+						<!-- logo -->
 
-                <div class="collapse navbar-collapse" id="navbarsFurni">
-                    <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="">Home</a>
-                        </li>
-                        <li><a class="nav-link" href="{{ route('shop.shop') }}">Shop</a></li>
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li><a href="{{url('/')}}">Inicio</a></li>
+								<li><a href="{{route('about')}}">Nosotros</a></li>
+								<li><a href="news.html">Blog</a>
+								<li><a href="contact.html">Contacto</a></li>
+								<ul class="sub-menu">
+									<li><a href="news.html">News</a></li>
+									<li><a href="single-news.html">Single News</a></li>
+								</ul>
+								</li>
 
-                        <li><a class="nav-link" href="services.html">Services</a></li>
-                        <li><a class="nav-link" href="blog.html">Blog</a></li>
-                        <li><a class="nav-link" href="contact.html">Contact us</a></li>
-                    </ul>
+								<li><a href="{{route('shop.shop')}}">Shop</a>
 
-                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                        <li>
-                            <ul class="btn-group custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                                <a data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="imagenes/user.svg">
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                            </ul>
-                        </li>
-                        <li><a class="nav-link" href="#"><img src="imagenes/user.svg"></a></li>
-                        <li><a class="nav-link" href="{{-- {{ route('cart.carrito') }} --}}"><img src="imagenes/cart.svg"></a></li>
-                    </ul>
-                    <!-- Example single danger button -->
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="cart.html"><i
+												class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i
+												class="fas fa-search"></i></a>
 
-                </div>
-            </div>
+                        <form method="POST" action="{{ route('logout') }}">
+                          @csrf
+                        <a  href="{{route('logout')}}" onclick="event.preventDefault();
+                        this.closest('form').submit();"><i
+                          ></i>salir</a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
 
-        </nav>
-        <!-- End Header/Navigation -->
-
-        <!-- Start Hero Section -->
-
-        <!-- End Hero Section -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-
-        <div class="untree_co-section before-footer-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <form class="col-md-12" method="post">
-                        <div class="site-blocks-table">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="product-thumbnail">Image</th>
-                                        <th class="product-name">Product</th>
-                                        <th class="product-price">Price</th>
-                                        <th class="product-quantity">Quantity</th>
-                                        <th class="product-total">Total</th>
-                                        <th class="product-remove">Remove</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    @foreach (Cart::content() as $productos)
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <img src="{{ asset($productos->options->imagen) }}" alt=" "
-                                                    class="img-fluid">
-                                            </td>
-                                            <td class="product-name">
-                                                <h2 class="h5 text-black">{{ $productos->name }}</h2>
-                                            </td>
-                                            <td>
-                                                <h2 class="h5 text-black">{{ $productos->price }}</h2>
-                                            </td>
-
-                        </div>
-                        <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container"
-                                style="max-width: 120px;">
-                                <div class="input-group-prepend">
-                                    <a href="{{ route('qty-decrement', $productos->rowId) }}"
-                                        class="btn btn-outline-black decrease" type="button">&minus;
-                                    </a>
-                                </div>
-                                <input type="text" class="form-control text-center quantity-amount"
-                                    value="{{ $productos->qty }}" placeholder=""
-                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
-
-                                <div class="input-group-append">
-                                    <a href="{{ route('qty-increment', $productos->rowId) }}"
-                                        class="btn btn-outline-black increase" type="button">&plus;
-                                    </a>
-                                </div>
-                        </td>
-                        </td>
-                        <td>${{ $productos->priceTotal }}</td>
-                        <td>
-                            <div class="input-group-append">
-                                <a href="{{ route('remove-product', $productos->rowId) }}">Eliminar</a>
-
-                            </div>
-                        </td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                        </table>
-                </div>
-                </form>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row mb-5">
-                        <div class="col-md-6 mb-3 mb-md-0">
-                            <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label class="text-black h4" for="coupon">Coupon</label>
-                            <p>Enter your coupon code if you have one.</p>
-                        </div>
-                        <div class="col-md-8 mb-3 mb-md-0">
-                            <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                        </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-black">Apply Coupon</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 pl-5">
-                    <div class="row justify-content-end">
-                        <div class="col-md-7">
-                            <div class="row">
-                                <div class="col-md-12 text-right border-bottom mb-5">
-                                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <span class="text-black">Subtotal</span>
-                                </div>
-                                <div class="col-md-6 text-right">
-
-                                </div>
-                            </div>
-
-                            <div class="row mb-5">
-                                <div class="col-md-6">
-                                    <span class="text-black">Total</span>
-                                </div>
-                                <div class="col-md-6 text-right">
-                                    <strong class="text-black">${{ Cart::priceTotal() }}</strong>
-                                </div>
-                            </div>
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close">xd</i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Buscador:</h3>
+							<input type="text" placeholder="Texto">
+							<button type="submit">Buscar<i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search area -->
 
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button class="btn btn-black btn-lg py-3 btn-block"
-                                        onclick="window.location='{{ route('checkout') }}'">Proceed To Checkout</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
 
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Haz de la cremosidad tu felicidad</p>
+						<h1>Tu compra</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
 
-        <!-- Start Footer Section -->
-        <footer class="footer-section">
-            <div class="container relative">
+	<!-- cart -->
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							<thead class="cart-table-head">
+								<tr class="table-head-row">
+									<th class="product-remove"></th>
+									<th class="product-image">Imagen</th>
+									<th class="product-name">Nombre</th>
+									<th class="product-price">Precio</th>
+									<th class="product-quantity">Cantidad</th>
+									<th class="product-total">Total</th>
+								</tr>
+							</thead>
+							<tbody>
+                @foreach (Cart::content() as $productos)
+								<tr class="table-body-row">
+									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+									<td class="product-image"><img src="{{ asset($productos->options->imagen) }}" alt="">
+									</td>
+									<td class="product-name">{{ $productos->name }}</td>
+									<td class="product-price">{{ $productos->price }}</td>
+									<td class="product-quantity">
+                    <div class="input-group-prepend">
+                      <a href="{{ route('qty-decrement', $productos->rowId) }}"
+                          class="btn btn-outline-black decrease" type="button">&minus;
+                      </a>
+                  </div>
+                  <input type="text" class="form-control text-center quantity-amount"
+                      value="{{ $productos->qty }}" placeholder=""
+                      aria-label="Example text with button addon" aria-describedby="button-addon1">
 
-                <div class="sofa-img">
-                    <img src="" alt="Image de un producto" class="img-fluid">
-                </div>
+                  <div class="input-group-append">
+                      <a href="{{ route('qty-increment', $productos->rowId) }}"
+                          class="btn btn-outline-black increase" type="button">&plus;
+                      </a>
+                  </div>
+                  </td>
+									<td class="product-total">1</td>
+								</tr>
+                @endforeach
+							</tbody>
+						</table>
+					</div>
+				</div>
 
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="subscription-form">
-                            <h3 class="d-flex align-items-center"><span class="me-1"><img
-                                        src="images/envelope-outline.svg" alt="Image"
-                                        class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+				<div class="col-lg-4">
+					<div class="total-section">
+						<table class="total-table">
+							<thead class="total-table-head">
+								<tr class="table-total-row">
+									<th>Total</th>
+									<th>Precio</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="total-data">
+									<td><strong>Subtotal: </strong></td>
+									<td>$500</td>
+								</tr>
+								<tr class="total-data">
+									<td><strong>Envio: </strong></td>
+									<td>$45</td>
+								</tr>
+								<tr class="total-data">
+									<td><strong>Total: </strong></td>
+									<td>${{ Cart::priceTotal() }}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="cart-buttons">
+							<a href="cart.html" class="boxed-btn">Actualizar compra</a>
+							<a href="{{route('checkout')}}" class="boxed-btn black">Comprar </a>
+						</div>
+					</div>
 
-                            <form action="#" class="row g-3">
-                                <div class="col-auto">
-                                    <input type="text" class="form-control" placeholder="Enter your name">
-                                </div>
-                                <div class="col-auto">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                </div>
-                                <div class="col-auto">
-                                    <button class="btn btn-primary">
-                                        <span class="fa fa-paper-plane"></span>
-                                    </button>
-                                </div>
-                            </form>
+					<!-- <div class="coupon-section">
+						<h3>Apply Coupon</h3>
+						<div class="coupon-form-wrap">
+							<form action="index.html">
+								<p><input type="text" placeholder="Coupon"></p>
+								<p><input type="submit" value="Apply"></p>
+							</form>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end cart -->
 
-                        </div>
-                    </div>
-                </div>
+	<!-- logo carousel -->
+	<!-- <div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- end logo carousel -->
 
-                <div class="row g-5 mb-5">
-                    <div class="col-lg-4">
-                        <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a>
-                        </div>
-                        <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
-                            malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-                            Pellentesque habitant</p>
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">IMBA</h2>
+						<p>Industria Mexicana de Biotecnología Alimentaria. <br> Lideres de productos innovadores y saludables
+							en el campo de la biotecnología alimentaria.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Ubicanos</h2>
+						<ul>
+							<li>Paraje Lomas de San Juan s/n, de, Méx.</li>
+							<li>IMBA@support.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Directorio</h2>
+						<ul>
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="about.html">Nosotros</a></li>
+							<li><a href="news.html">Blog</a></li>
+							<li><a href="contact.html">Contacto</a></li>
+							<li><a href="services.html">Shop</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribete</h2>
+						<p>Suscríbase a nuestra lista de correo para recibir las últimas actualizaciones.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
 
-                        <ul class="list-unstyled custom-social">
-                            <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                            <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                            <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                            <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-                        </ul>
-                    </div>
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2023 - <a href="">Code Strokes</a>,  All Rights Reserved.<br>
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
 
-                    <div class="col-lg-8">
-                        <div class="row links-wrap">
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                </ul>
-                            </div>
+	<!-- jquery -->
+	<script src="assetss/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="assetss/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="assetss/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="assetss/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="assetss/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="assetss/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="assetss/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="assetss/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="assetss/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="assetss/js/main.js"></script>
 
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">Knowledge base</a></li>
-                                    <li><a href="#">Live chat</a></li>
-                                </ul>
-                            </div>
+</body>
 
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Jobs</a></li>
-                                    <li><a href="#">Our team</a></li>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="col-6 col-sm-6 col-md-3">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Nordic Chair</a></li>
-                                    <li><a href="#">Kruzo Aero</a></li>
-                                    <li><a href="#">Ergonomic Chair</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="border-top copyright">
-                    <div class="row pt-4">
-                        <div class="col-lg-6">
-                            <p class="mb-2 text-center text-lg-start">Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>. All Rights Reserved. &mdash; Designed with love by <a
-                                    href="https://untree.co">Untree.co</a> Distributed By <a
-                                    hreff="https://themewagon.com">ThemeWagon</a>
-                                <!-- License information: https://untree.co/license/ -->
-                            </p>
-                        </div>
-
-                        <div class="col-lg-6 text-center text-lg-end">
-                            <ul class="list-unstyled d-inline-flex ms-auto">
-                                <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </footer>
-        <!-- End Footer Section -->
-
-
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/tiny-slider.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-
-    </html>
+</html>
 
 @endsection
+
+
+
+<script>
+  $(document).ready(function() {
+      var quantityInput = $('#quantity-input');
+
+      // Manejar cambios en el valor del campo de entrada
+      quantityInput.on('input', function() {
+          var newQuantity = parseInt(quantityInput.val());
+
+          if (!isNaN(newQuantity) && newQuantity >= 1) {
+              // Realizar una solicitud AJAX para actualizar la cantidad en el carrito
+              updateCartQuantity(newQuantity);
+          }
+      });
+
+      function updateCartQuantity(newQuantity) {
+          // Realiza una solicitud AJAX para actualizar la cantidad en el carrito
+          // Asegúrate de obtener el productId apropiado
+          var productId = 'obtener_de_algun_lugar';
+
+          $.ajax({
+              type: 'GET',
+              url: '/update-cart-quantity/' + productId, // Ajusta la ruta según tus rutas definidas
+              data: {
+                  quantity: newQuantity
+              },
+              success: function(response) {
+                  // Maneja la respuesta del servidor, si es necesario
+              },
+              error: function(xhr, status, error) {
+                  console.log(xhr.responseText);
+              }
+          });
+      }
+  });
+</script>

@@ -20,8 +20,9 @@ class SuperAdminSeeder extends Seeder
         Admin::create([
             'name' => 'Super Admin',
             'email' => 'ulisess@test.com',
+            'telefono'=>55445,
             'password' => bcrypt('ulises2415'),
-            
+
         ]);
     }
 }

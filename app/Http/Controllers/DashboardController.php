@@ -17,7 +17,7 @@ DashboardController extends Controller
         return view('admin.dashboard',compact('totalUsers','totalProducts'));
     }
   public function  about(){
-      return view('about.index');
+      return view('about.about');
   }
 
   public function  checkout(){

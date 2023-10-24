@@ -10,9 +10,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+
 class AuthenticatedSessionController extends Controller
 {
-//    protected $guard = 'web';
+//protected $guard = 'web';
 
     /**
      * Display the login view.
@@ -27,11 +28,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+      //dd($request->all());
+      $request->authenticate();
 
-        $request->session()->regenerate();
+      $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+      return redirect()->intended(RouteServiceProvider::HOME);
+
     }
 
     /**
@@ -39,7 +42,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::logout(); 
+        Auth::logout();
 
         $request->session()->invalidate();
 

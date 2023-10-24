@@ -3,265 +3,388 @@
 @section('title', 'Blank layout - Layouts')
 
 @section('content')
-
-@endsection
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="favicon.png">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap4" />
+	<!-- title -->
+	<title>IMBA | Finalizar compra</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="css/tiny-slider.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <title>so Scream </title>
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="assetss/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assetss/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="assetss/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="assetss/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="assetss/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="assetss/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assetss/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="assetss/css/responsive.css">
+
 </head>
 
 <body>
-  
-    <!-- Start Header/Navigation -->
-    <nav class="custom-navbar navbar navbar navbar-expand-md " arial-label="Furni navigation bar">
 
-        <div class="container">
-            <a class="navbar-brands" href="index.html">Bienvenido {{ Auth::user()->name }}<span>.</span></a>
+	<!--PreLoader-->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
-                aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="assets/img/logo.png" alt="">
+							</a>
+						</div>
+						<!-- logo -->
 
-            <div class="collapse navbar-collapse" id="navbarsFurni">
-                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="">Home</a>
-                    </li>
-                    <li><a class="nav-link" href="{{ route('shop.shop') }}">Shop</a></li>
-                    <li><a class="nav-link" href="{{ route('about') }}">About us</a></li>
-                    <li><a class="nav-link" href="services.html">Services</a></li>
-                    <li><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li><a class="nav-link" href="contact.html">Contact us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li><a href="{{url('/')}}">Inicio</a></li>
+								<li><a href="{{route('about')}}">Nosotros</a></li>
+								<li><a href="news.html">Blog</a>
+								<li><a href="contact.html">Contacto</a></li>
+								<ul class="sub-menu">
+									<li><a href="news.html">News</a></li>
+									<li><a href="single-news.html">Single News</a></li>
+								</ul>
+								</li>
+								<li><a href="#">Pages</a>
 
-    <div class="why-choose-section">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-6">
-                    <div class="card mb-4">
-                        <h5 class="card-header">Shipping Address</h5>
-                        <!-- Shipping Address -->
-                        <div id="datosDireccionMinimizada" style="display: none; text-align: center;">
-                            <h5>Minimized Address Data:</h5>
-                            <p><strong></strong> <span id="nombreDireccionMinimizada"></span></p>
-                            <a href="#" id="editarDireccionLink">Edit Address</a>
-                        </div>
+								</li>
+								<li><a href="shop.html">Shop</a>
+									<ul class="sub-menu">
+										<li><a href="shop.html">Shop</a></li>
+										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="single-product.html">Single Product</a></li>
+										<li><a href="cart.html">Cart</a></li>
+									</ul>
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="cart.html"><i
+												class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i
+												class="fas fa-search"></i></a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
 
-                        <div class="card-body">
-                        </div>
-                        <hr class="my-0">
-                        <div class="card-body " id="direccionEnvioSection">
-                            <form id="formAccountSettings" method="POST" onsubmit="return false">
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                        <label for="nombre" class="form-label">Name</label>
-                                        <input class="form-control" type="text" name="nombre" id="nombre" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="apellido" class="form-label">Last Name</label>
-                                        <input class="form-control" type="text" name="apellido" id="apellido" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label class="form-label" for="telefono">Phone Number</label>
-                                        <div class="input-group input-group-merge">
-                                            <span class="input-group-text">MX (+52)</span>
-                                            <input type="text" id="telefono" name="telefono" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="direccion" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="direccion" name="direccion"
-                                            placeholder="Street and Number" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for "referencias" class="form-label">References</label>
-                                        <input type="text" class="form-control" id="referencias"
-                                            name="referencias" placeholder="Street and Number" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="codigoPostal" class="form-label">Zip Code</label>
-                                        <input type="text" class="form-control" id="codigoPostal"
-                                            name="codigoPostal" placeholder="231465" maxlength="6" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="estado" class="form-label">State</label>
-                                        <input type="text" class="form-control" id="estado" name="estado"
-                                            placeholder="State" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="ciudad" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="ciudad" name="ciudad"
-                                            placeholder="City" />
-                                    </div>
-                                </div>
-                                <div class="mt-2">
-                                    <button type="submit" class="btn btn-primary me-2" id="guardarDireccionBtn">Save
-                                        Changes and Minimize</button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /Shipping Address -->
-                    </div>
-                </div>
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Buscador:</h3>
+							<input type="text" placeholder="Texto">
+							<button type="submit">Buscar<i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search area -->
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Haz de la cremosidad tu felicidad</p>
+						<h1>Finaliza tu compra</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- check out section -->
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+							<div class="card single-accordion">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse"
+											data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Billing Address
+										</button>
+									</h5>
+								</div>
+
+								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+									data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="billing-address-form">
+											<form action="index.html">
+												<p><input type="text" placeholder="Name"></p>
+												<p><input type="email" placeholder="Email"></p>
+												<p><input type="text" placeholder="Address"></p>
+												<p><input type="tel" placeholder="Phone"></p>
+												<p><textarea name="bill" id="bill" cols="30" rows="10"
+														placeholder="Say Something"></textarea></p>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card single-accordion">
+								<div class="card-header" id="headingTwo">
+									<h5 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+											data-target="#collapseTwo" aria-expanded="false"
+											aria-controls="collapseTwo">
+											Shipping Address
+										</button>
+									</h5>
+								</div>
+								<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+									data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="shipping-address-form">
+											<p>Your shipping address form is here.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card single-accordion">
+								<div class="card-header" id="headingThree">
+									<h5 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+											data-target="#collapseThree" aria-expanded="false"
+											aria-controls="collapseThree">
+											Card Details
+										</button>
+									</h5>
+								</div>
+								<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+									data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="card-details">
+											<p>Your card details goes here.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="order-details-wrap">
+						<table class="order-details">
+							<thead>
+								<tr>
+									<th>Your order Details</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody class="order-details-body">
+								<tr>
+									<td>Product</td>
+									<td>Total</td>
+								</tr>
+							</tbody>
+							<tbody class="checkout-details">
+                <tr>
+									<td>Sub total </td>
+									<td>$ {{ Cart::priceTotal()}}</td>
+								</tr>
+								<tr>
+									<td>precion de envio</td>
+									<td>$100</td>
+								</tr>
+
+								<tr>
+									<td>Total</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+            <br>
+            <form action="{{ route('paypal.payment') }}" method="POST">
+              @csrf
+              <!-- Agrega aquí cualquier otro campo que desees enviar a PayPal, como información del pedido, cantidad, etc. -->
+              <button type="submit" class="custom-button">Place Order</button>
+          </form>
 
 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end check out section -->
 
-                <!-- Transactions -->
-                <div class="col-md-6 col-lg-4 order-2 mb-4 row justify-content-between align-items-center">
-                    <div class="card h-100">
-                        <div class="card-header d-flex align-items-center justify-content-between">
-                            <img src="{{ asset('assets/img/icons/unicons/cc-success.png') }}" alt="User"
-                                class="rounded">
-                            <h5 class="card-title m-0">Resumen de Orden de compra</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="p-0 m-0">
-                                <li class="d-flex mb-4 pb-1">
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">En total:</h6>
-                                        </div>
+	<!-- logo carousel -->
+	<!-- <div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- end logo carousel -->
 
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0">${{ Cart::priceTotal() }}</h6> <span
-                                                class="text-muted">MXN</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 pb-1">
-                                    <div
-                                        class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div class="me-2">
-                                            <h6 class="mb-0">Precio de envio</h6>
-                                        </div>
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">IMBA</h2>
+						<p>Industria Mexicana de Biotecnología Alimentaria. <br> Lideres de productos innovadores y saludables
+							en el campo de la biotecnología alimentaria.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Ubicanos</h2>
+						<ul>
+							<li>Paraje Lomas de San Juan s/n, de, Méx.</li>
+							<li>IMBA@support.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Directorio</h2>
+						<ul>
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="about.html">Nosotros</a></li>
+							<li><a href="news.html">Blog</a></li>
+							<li><a href="contact.html">Contacto</a></li>
+							<li><a href="services.html">Shop</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribete</h2>
+						<p>Suscríbase a nuestra lista de correo para recibir las últimas actualizaciones.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
 
-                                        <div class="user-progress d-flex align-items-center gap-1">
-                                            <h6 class="mb-0">$MXN 2323.10</h6> <span class="text-muted">MXN</span>
-                                        </div>
-                                        <div class="why-choose-section">
-                                          <div class="container">
-                                            <!-- Otras partes de tu contenido -->
-                                            <!-- ... -->
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2023 - <a href="">Code Strokes</a>,  All Rights Reserved.<br>
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
 
-                                            <!-- Contenedor para el formulario de PayPal -->
-                                            <div class="paypal-container">
-                                              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                                <input type="hidden" name="cmd" value="_s-xclick" />
-                                                <input type="hidden" name="hosted_button_id" value="MP6ZHGTSNYK4W" />
-                                                <input type="hidden" name="currency_code" value="MXN" />
-                                                <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_paynow_SM.gif" border="0" name="submit" title="PayPal es una forma segura y fácil de pagar en línea." alt="Comprar ahora" />
-                                              </form>
-                                            </div>
+	<!-- jquery -->
+	<script src="assetss/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="assetss/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="assetss/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="assetss/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="assetss/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="assetss/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="assetss/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="assetss/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="assetss/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="assetss/js/main.js"></script>
 
-                                            <!-- Otras partes de tu contenido -->
-                                            <!-- ... -->
-                                          </div>
-                                        </div>
-
-
-                                    </div>
-                                </li>
-                            </ul>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- /Transactions -->
-            </div>
-
-
-            <div class="col-md-6 col-lg-4 order-2 mb-4 row justify-content-between align-items-center">
-                <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="card-title m-0">Resumen de Orden de compra</h5>
-                    </div>
-
-
-                    <div class="col-sm-6 col-lg-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="contenedor">
-                                    <img class="card-img-top  imagen-ajustada" src="integrantes/Michelle.jpg">
-                                    <img class="card-img-top  imagen-ajustada" src="integrantes/Michelle.jpg">
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </div>
-
-    <!-- End Header/Navigation -->
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/tiny-slider.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
 </html>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#guardarDireccionBtn').click(function() {
-            // Captura los valores del formulario
-            var nombre = $('#nombre').val();
-            var apellido = $('#apellido').val();
-            var telefono = $('#telefono').val();
-            var direccion = $('#direccion').val();
-            var referencias = $('#referencias').val();
-            var codigoPostal = $('#codigoPostal').val();
-            var estado = $('#estado').val();
-            var ciudad = $('#ciudad').val();
-
-            // Combina los valores en un único párrafo
-            var datosDireccion =
-                nombre + ' ' + apellido + '<br>' +
-                direccion + '' + codigoPostal + '<br>';
-
-            // Muestra los datos en la vista minimizada
-            $('#nombreDireccionMinimizada').html(datosDireccion);
-
-            // Oculta la sección de edición
-            $('#direccionEnvioSection').hide();
-
-            // Muestra la sección minimizada
-            $('#datosDireccionMinimizada').show();
-        });
-
-        // Maneja el clic en "Editar dirección" en la sección minimizada
-        $('#editarDireccionLink').click(function() {
-            // Oculta la sección minimizada
-            $('#datosDireccionMinimizada').hide();
-
-            // Muestra la sección de edición
-            $('#direccionEnvioSection').show();
-        });
-    });
-</script>
+@endsection

@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 class Admin extends Authenticatable
 {
-    
+
     use HasApiTokens, HasFactory, Notifiable;
     use HasRoles;
     protected $guard = 'admin';
@@ -22,7 +22,7 @@ class Admin extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'role_id',
+        'telefono',
         'password',
     ];
 
@@ -46,6 +46,6 @@ class Admin extends Authenticatable
         'password' => 'string',
     ];
 
-    
-    
+
+
 }

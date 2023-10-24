@@ -20,7 +20,7 @@ class ProductoController extends Controller
         return view('productos.index',compact('productos'));
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +40,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //dd($request->imagen);
-            
+
 
        // $validator = Validator::make($request->all(), [
        //     'nombre_producto' => 'required|string|max:255',
@@ -75,15 +75,15 @@ class ProductoController extends Controller
             $imagen->storeAs('public/imagenes', $imagenNombre); // Almacenar en storage/app/public/imagenes
             $Producto->imagen = 'storage/imagenes/' . $imagenNombre; // Ruta incorrecta, debe ser 'imagenes/'
         }
-        
+
 
         $Producto->save();
 
         return redirect()->route('productos.index');
     }
-        
-           
-    
+
+
+
 
     /**
      * Display the specified resource.
@@ -123,7 +123,7 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         $producto = Producto::find($id);
-        
+
         if (!$producto) {
             // Manejo de error si el producto no se encuentra
             return redirect()->route('productos.index')->with('error', 'Producto no encontrado');
@@ -133,7 +133,7 @@ class ProductoController extends Controller
         $producto->precio = $request->input('precio');
         $producto->stock = $request->input('stock');
         $producto->estado = $request->input('estado') == 'true' ? 1 : 0;
-    
+
         $producto->fecha_activo = Carbon::parse($request->input('fecha_activo'));
         $producto->fecha_limite = Carbon::parse($request->input('fecha_limite'));
         if ($request->hasFile('imagen')) {
@@ -142,9 +142,9 @@ class ProductoController extends Controller
             $imagen->storeAs('public/imagenes', $imagenNombre);
             $producto->imagen = 'storage/imagenes/' . $imagenNombre;
         }
-    
+
         $producto->save();
-    
+
         return redirect()->route('productos.index')->with('success', 'Producto actualizado con éxito');
     }
 
