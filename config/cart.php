@@ -42,6 +42,8 @@ return [
 
         'table' => 'shoppingcart',
 
+
+
     ],
 
     /*

@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Producto;
 
-class
-DashboardController extends Controller
+class DashboardController extends Controller
 {
     public function dashboard(){
 

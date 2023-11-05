@@ -27,8 +27,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-      
 
+//dd($request->all());
         $request->authenticate('admin'); // Especifica el guardia 'admin'
         $request->session()->regenerate(); // Regenera la sesión
         return redirect()->intended(RouteServiceProvider::ADMIN_DASHBOARD);
@@ -44,9 +44,9 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('admin.login');
 
-        
+
 
     }
 
-   
+
 }

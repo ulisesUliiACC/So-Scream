@@ -77,11 +77,7 @@
                       <li><a href="#">Perfil</a></li>
                       <li><a href="#">Configuración</a></li>
 
-                      <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                      <li><a  href="{{route('logout')}}" onclick="event.preventDefault();
-                        this.closest('form').submit();">Cerrar sesión</a></li>
-                      </form>
+
 
                   </ul>
               </div>

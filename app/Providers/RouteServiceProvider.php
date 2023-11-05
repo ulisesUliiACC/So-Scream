@@ -17,10 +17,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/';
+    public const HOME = '/productos';
     public const ADMIN_DASHBOARD = '/admin/dashboard';
-    
-    
+
+
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-               
+
         });
     }
 

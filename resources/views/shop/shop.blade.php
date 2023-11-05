@@ -79,11 +79,25 @@
                                     </li>
                                     <li>
                                         <div class="header-icons">
-                                            <a class="shopping-cart" href="{{route('cart.carrito')}}"><i
-                                                    class="fas fa-shopping-cart"></i></a>
+                                            <a class="shopping-cart" href="{{route('cart.carrito')}}"><i class="fas fa-shopping-cart"></i></a>
+                                            <a class="user-icon" id="user-icon"><i class='fas fa-user'></i></a>
+              <!-- Opciones de usuario -->
+              <div class="user-options" id="user-options">
+                  <ul>
 
-                                            <a class="mobile-hide search-bar-icon" href="#"><i
-                                                    class="fas fa-search"></i></a>
+                      <li><a href="{{route('login')}}">Iniciar Seccion</a></li>
+
+                      <li><a href="#">Perfil</a></li>
+                      <li><a href="#">Configuración</a></li>
+
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                      <li><a  href="{{route('logout')}}" onclick="event.preventDefault();
+                        this.closest('form').submit();">Cerrar sesión</a></li>
+                      </form>
+
+                  </ul>
+              </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -283,42 +297,83 @@
     </body>
 
     </html>
+    <script>
+      document.getElementById('user-icon').addEventListener('click', function() {
+        var userOptions = document.getElementById('user-options');
+        if (userOptions.style.display === 'none' || userOptions.style.display === '') {
+            userOptions.style.display = 'block';
+        } else {
+            userOptions.style.display = 'none';
+        }
+    });
+
+    // Cerrar las opciones de usuario si se hace clic fuera de ellas
+    document.addEventListener('click', function(event) {
+        var userOptions = document.getElementById('user-options');
+        var userIcon = document.getElementById('user-icon');
+
+        if (event.target !== userIcon && event.target !== userOptions) {
+            userOptions.style.display = 'none';
+        }
+    });
+
+    </script>
 @endsection
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-   $(document).ready(function() {
+$(document).ready(function() {
     $('.agregar-al-carrito').click(function(event) {
         event.preventDefault();
 
         var productId = $(this).data('product-id');
-        $.ajax({
-            type: 'POST',
-            url: '/add-to-cart/' + productId,
-            data: {
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Producto agregado al carrito con éxito',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Hubo un error al agregar el producto al carrito.'
-                });
-            }
-        });
+
+        // Comprobar si el usuario está autenticado
+        var isUserLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
+
+        if (isUserLoggedIn) {
+            $.ajax({
+                type: 'POST',
+                url: '/add-to-cart/' + productId,
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Producto agregado al carrito con éxito',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Hubo un error al agregar el producto al carrito.'
+                    });
+                }
+            });
+        } else {
+            // Mostrar alerta
+            Swal.fire({
+                icon: 'info',
+                title: 'Debes iniciar sesión para agregar este producto.',
+                showConfirmButton: false,
+                timer: 3000 // Tiempo en milisegundos (3 segundos en este ejemplo)
+            });
+
+            // Redirigir al usuario a la página de inicio de sesión después del tiempo especificado
+            setTimeout(function() {
+                window.location.href = '/login';  // Cambia '/login' a la URL de tu página de inicio de sesión
+            }, 3000); // Cambia el valor a la duración deseada en milisegundos (3 segundos en este ejemplo)
+        }
     });
 });
 
 </script>
+

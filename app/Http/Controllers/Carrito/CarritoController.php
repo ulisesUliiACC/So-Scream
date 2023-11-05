@@ -10,6 +10,7 @@ use App\Models\Carrito;
 use App\Models\Pedido;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Gloudemans\Shoppingcart\Contracts\Calculator;
+
 class CarritoController extends Controller
 {
 
@@ -28,34 +29,37 @@ class CarritoController extends Controller
 
   public function addToCart($id)
   {
-    $productos = Producto::findOrFail($id);
-    // Añadir un registro a la tabla 'carrito'
-    Carrito::create([
-        'user_id' => auth()->user()->id, // Si los usuarios están autenticados
-        'producto_id' => $productos->id,
-        'cantidad' => 1, // Ajusta la cantidad según tus necesidades
-        'precio' => $productos->precio,
-    ]);
+      $productos = Producto::findOrFail($id);
 
+      if (auth()->check()) {
+          // Si el usuario está autenticado, usa el carrito gestionado por el paquete
+          Cart::add([
+              'id' => $productos->id,
+              'name' => $productos->nombre_producto,
+              'price' => $productos->precio,
+              'weight' => 0,
+              'qty' => 1,
+              'options' => [
+                  'imagen' => $productos->imagen,
+              ]
+          ]);
+      } else {
+          // Si el usuario no está autenticado, guarda el producto en la tabla 'carrito'
+          Carrito::create([
+              'user_id' => null, // Indica que el usuario no está autenticado
+              'producto_id' => $productos->id,
+              'cantidad' => 1,
+              'precio' => $productos->precio,
+          ]);
+      }
 
-    Cart::add([
-      'id' => $productos->id,
-      'name' => $productos->nombre_producto,
-      'price' => $productos->precio,
-      'weight' => 0,
-      'qty' => 1,
-      'options' => [
-        'imagen' => $productos->imagen,
+      $response = [
+          'message' => 'Producto agregado al carrito con éxito.'
+      ];
 
-      ]
-    ]);
-    //session()->flash('success', 'Producto agregado al carrito con éxito.');
-    $response = [
-        'message' => 'Producto agregado al carrito con éxito.'
-    ];
-
-    return response()->json($response);
+      return response()->json($response);
   }
+
 
   public function qtyIncrement($id)
   {
@@ -91,7 +95,7 @@ class CarritoController extends Controller
   {
 
     $total = 0;
-    foreach(Cart::content() as $item){
+    foreach (Cart::content() as $item) {
       $total += $item->qty * $item->price;
     }
     return $total;
@@ -99,8 +103,8 @@ class CarritoController extends Controller
 
   //forulario de datos de envio del cliente
   public function completarCompra(Request $request)
-{
-  $pedido =new Pedido();
+  {
+    $pedido = new Pedido();
     // Obtén los datos del formulario de envío
     $nombre = $request->input('nombre');
     $apellido = $request->input('apellido');
@@ -113,14 +117,20 @@ class CarritoController extends Controller
 
     // Crea un nuevo registro de pedido en la base de datos
     $pedido = Pedido::create([
-        'usuario_id' => auth()->user()->id, // Si los usuarios están autenticados
-        'fecha_pedido' => now(), // Puedes ajustar la fecha y hora según tus necesidades
-        'estado' => 'pendiente', // O el estado deseado
-        'direccion_envio' => $direccion,
-        'direccion_facturacion' => '', // Puedes completar esto según tu lógica
-        'metodo_pago' => 'PayPal', // O el método de pago utilizado
-        'monto_total' => 0, // Puedes ajustar esto después de calcular el monto total
-        // Otros campos según tus necesidades
+      'usuario_id' => auth()->user()->id,
+      // Si los usuarios están autenticados
+      'fecha_pedido' => now(),
+      // Puedes ajustar la fecha y hora según tus necesidades
+      'estado' => 'pendiente',
+      // O el estado deseado
+      'direccion_envio' => $direccion,
+      'direccion_facturacion' => '',
+      // Puedes completar esto según tu lógica
+      'metodo_pago' => 'PayPal',
+      // O el método de pago utilizado
+      'monto_total' => 0,
+      // Puedes ajustar esto después de calcular el monto total
+      // Otros campos según tus necesidades
     ]);
 
     // Una vez que tengas el ID del pedido, puedes asociar los productos al pedido
@@ -128,7 +138,7 @@ class CarritoController extends Controller
 
     // Finalmente, redirige al cliente a la pasarela de pago de PayPal
     return redirect()->route('paypal.checkout'); // Ajusta la ruta según tu aplicación
-}
+  }
 
 
 }
