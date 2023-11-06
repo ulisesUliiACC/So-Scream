@@ -312,4 +312,11 @@ a.boxed-btn, a.bordered-btn,  a.cart-btn{
   }
 
   padding-top: 200px;
+}.error {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+.error.active {
+  display: block;
 }

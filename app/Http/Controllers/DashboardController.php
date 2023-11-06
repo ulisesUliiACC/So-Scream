@@ -24,4 +24,9 @@ class DashboardController extends Controller
     return view('shop.checkout.index');
   }
 
+
+  public function contacto(){
+    return view('Contacto.index');
+  }
+
 }

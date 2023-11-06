@@ -87,7 +87,7 @@
 
                       <li><a href="{{route('login')}}">Iniciar Seccion</a></li>
 
-                      <li><a href="#">Perfil</a></li>
+                      <li><a href="{{route('profile.edit')}}">Perfil</a></li>
                       <li><a href="#">Configuración</a></li>
 
                       <form method="POST" action="{{ route('logout') }}">

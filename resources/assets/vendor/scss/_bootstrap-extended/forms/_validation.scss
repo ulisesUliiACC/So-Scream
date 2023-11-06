@@ -57,3 +57,34 @@ form {
     }
   }
 }
+.error {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+.error.active {
+  display: block;
+}
+.form-container {
+            max-width: 300px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .input-label {
+            font-weight: bold;
+            display: block;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }

@@ -1,221 +1,258 @@
-@extends('layouts/contentNavbarLayout')
-
-@section('title', 'Dashboard - Analytics')
-
-@section('vendor-style')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-@endsection
-
-@section('vendor-script')
-    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-@endsection
-
-@section('page-script')
-    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-@endsection
+@extends('layouts/blankLayout')
 
 @section('content')
-    <x-app-layout>
+    <!DOCTYPE html>
+    <html lang="en">
 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+            content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
-        <h4 class="py-3 mb-4 fw-bold"><span class="text-muted fw-light">UI Elements /</span> Cards Advance
-        </h4>
+        <!-- title -->
+        <title>IMBA | Blog</title>
 
-        <div class="row">
-            <!-- Employee List -->
-            <div class="mb-4 col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="m-0 card-title me-2">Info de Cuenta</h5>
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+        <!-- google font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+        <!-- fontawesome -->
+        <link rel="stylesheet" href="assetss/css/all.min.css">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="assetss/bootstrap/css/bootstrap.min.css">
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="assetss/css/owl.carousel.css">
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="assetss/css/magnific-popup.css">
+        <!-- animate css -->
+        <link rel="stylesheet" href="assetss/css/animate.css">
+        <!-- mean menu css -->
+        <link rel="stylesheet" href="assetss/css/meanmenu.min.css">
+        <!-- main style -->
+        <link rel="stylesheet" href="assetss/css/main.css">
+        <!-- responsive -->
+        <link rel="stylesheet" href="assetss/css/responsive.css">
 
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-4 card">
-                            <div class="card-body">
-                                <div class="user-avatar-section">
-                                    <div class=" d-flex align-items-center flex-column">
-                                        <img class="my-4 card-photo"
+    </head>
 
-                                            src="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo/assets/img/avatars/10.png"
-                                            height="250" width="200" alt="User avatar">
-                                        <div class="text-center user-info">
-                                            <h4 class="mb-2">{{ Auth::user()->name }}</h4>
-                                            <span class="badge bg-label-secondary">Author</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-wrap py-3 my-4 d-flex justify-content-around">
-                                    <div class="gap-3 mt-3 d-flex align-items-start me-4">
-                                        <span class="p-2 rounded badge bg-label-primary"><i
-                                                class="bx bx-check bx-sm"></i></span>
-                                        <div>
-                                            <h5 class="mb-0">1.23k</h5>
-                                            <span>Tasks Done</span>
-                                        </div>
-                                    </div>
-                                    <div class="gap-3 mt-3 d-flex align-items-start">
-                                        <span class="p-2 rounded badge bg-label-primary"><i
-                                                class="bx bx-customize bx-sm"></i></span>
-                                        <div>
-                                            <h5 class="mb-0">568</h5>
-                                            <span>Projects Done</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h5 class="pb-2 mb-4 border-bottom">Details</h5>
-                                <div class="info-container">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Username:</span>
-                                            <span>{{ Auth::user()->name }}</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Email:</span>
-                                            <span>{{ Auth::user()->email }}</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Status:</span>
-                                            <span class="badge bg-label-success">Active</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Role:</span>
-                                            <span>Author</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Tax id:</span>
-                                            <span>Tax-8965</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Contact:</span>
-                                            <span>(123) 456-7890</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Languages:</span>
-                                            <span>French</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Country:</span>
-                                            <span>England</span>
-                                        </li>
-                                    </ul>
-                                    <div class="pt-3 d-flex justify-content-center">
-                                        <a href="javascript:;" class="btn btn-primary me-3" data-bs-target="#editUser"
-                                            data-bs-toggle="modal">Edit</a>
-                                        <a href="javascript:;" class="btn btn-danger">Suspended</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <body>
+
+        <!--PreLoader-->
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="circle"></div>
             </div>
-            <!--/ Employee List -->
-            <div class="mb-4 col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="m-0 card-title me-2">Info de Cuenta</h5>
+        </div>
+        <!--PreLoader Ends-->
 
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-4 card">
-                            <div class="card-body">
-                                <div class="user-avatar-section">
-                                    <div class=" d-flex align-items-center flex-column">
-                                        <img class="my-4 rounded img-fluid"
-                                            src="https://demos.themeselection.com/sneat-bootstrap-html-laravel-admin-template/demo/assets/img/avatars/10.png"
-                                            height="110" width="110" alt="User avatar">
-                                        <div class="text-center user-info">
-                                            <h4 class="mb-2">Violet Mendoza</h4>
-                                            <span class="badge bg-label-secondary">Author</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-wrap py-3 my-4 d-flex justify-content-around">
-                                    <div class="gap-3 mt-3 d-flex align-items-start me-4">
-                                        <span class="p-2 rounded badge bg-label-primary"><i
-                                                class="bx bx-check bx-sm"></i></span>
-                                        <div>
-                                            <h5 class="mb-0">1.23k</h5>
-                                            <span>Tasks Done</span>
-                                        </div>
-                                    </div>
-                                    <div class="gap-3 mt-3 d-flex align-items-start">
-                                        <span class="p-2 rounded badge bg-label-primary"><i
-                                                class="bx bx-customize bx-sm"></i></span>
-                                        <div>
-                                            <h5 class="mb-0">568</h5>
-                                            <span>Projects Done</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h5 class="pb-2 mb-4 border-bottom">Details</h5>
-                                <div class="info-container">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Username:</span>
-                                            <span>violet.dev</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Email:</span>
-                                            <span>vafgot@vultukir.org</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Status:</span>
-                                            <span class="badge bg-label-success">Active</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Role:</span>
-                                            <span>Author</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Tax id:</span>
-                                            <span>Tax-8965</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Contact:</span>
-                                            <span>(123) 456-7890</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Languages:</span>
-                                            <span>French</span>
-                                        </li>
-                                        <li class="mb-3">
-                                            <span class="fw-bold me-2">Country:</span>
-                                            <span>England</span>
-                                        </li>
-                                    </ul>
-                                    <div class="pt-3 d-flex justify-content-center">
-                                        <a href="javascript:;" class="btn btn-primary me-3" data-bs-target="#editUser"
-                                            data-bs-toggle="modal">Edit</a>
-                                        <a href="javascript:;" class="btn btn-danger">Suspended</a>
-                                    </div>
-                                </div>
-                            </div>
+       <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-sm-12 text-center">
+                  <div class="main-menu-wrap">
+                      <!-- logo -->
+                      <div class="site-logo">
+                          <a href="index.html">
+                              <img src="assetss/img/logo.png" alt="">
+                          </a>
+                      </div>
+                      <!-- logo -->
+
+                      <!-- menu start -->
+                      <nav class="main-menu">
+                          <ul>
+                              <li><a href="{{ url('/') }}">Inicio</a></li>
+                              <li><a href="{{ route('about') }}">Nosotros</a></li>
+                              <li><a href="news.html">Blog</a></li>
+                              <li><a href="contact.html">Contacto</a></li>
+                              <li><a href="{{ route('shop.shop') }}">Shop</a></li>
+                              <li>
+                                  <div class="header-icons">
+                                      <a class="shopping-cart" href="{{ route('cart.carrito') }}"><i
+                                              class="fas fa-shopping-cart"></i></a>
+                                      <a class="user-icon" id="user-icon"><i class='fas fa-user'></i></a>
+                                      <!-- Opciones de usuario -->
+                                      <div class="user-options" id="user-options">
+                                          <ul>
+
+                                              <li><a href="{{ route('login') }}">Iniciar Seccion</a></li>
+                                              <li><a href="{{ route('profile.edit') }}">Perfil</a></li>
+                                              <li><a href="{{ route('profile.edit') }}">compras</a></li>
+                                              <li><a href="#">salir</a></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </nav>
+                      <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                      <div class="mobile-menu"></div>
+                      <!-- menu end -->
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end header -->
+
+
+
+        <!-- breadcrumb-section -->
+        <div class="breadcrumb-section breadcrumb-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                            <p>Información de perfil</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="py-12">
-            <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-                <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
-                    <div class="max-w-xl">
-                        @include('profile.partials.update-profile-information-form')
-                    </div>
-                </div>
+        <!-- end breadcrumb section -->
 
-                <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
-                    <div class="max-w-xl">
-                        @include('profile.partials.update-password-form')
-                    </div>
-                </div>
+        <!-- latest news -->
+        <div class="latest-news mt-150 mb-150">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-latest-news">
+                            <a href="single-news.html"></a>
+                            <div class="news-text-box">
+                                <h3><a href="single-news.html">información del perfil</a></h3>
+                                <p class="blog-meta">
+                                    <span class="author"><i class="fas fa-user"></i> User {{ Auth::user()->name }}</span>
 
-                <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
-                    <div class="max-w-xl">
-                        @include('profile.partials.delete-user-form')
+                                </p>
+                                <p>
+                                <p class="excerpt">Actualice la información del perfil y la dirección de correo electrónico
+                                    de su cuenta.</p>
+
+                                </p>
+                                <div class="billing-address-form">
+                                    <form action="index.html">
+                                        <p><i class="fas fa-user">
+                                                <label for="nombre">Nombre:</label>
+                                                <input type="text" id="nombre" placeholder="Nombre" required>
+                                                <span class="error" id="nombre-error"></span>
+                                            </i></p>
+                                        <p>
+                                            <label for="correo">Correo:</label>
+                                            <input type="email" id="correo" placeholder="Correo" required>
+                                            <span class="error" id="correo-error"></span>
+                                        </p>
+
+                                        <p><input type="submit" value="Guardar"></p>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-latest-news">
+                            <a href="single-news.html"></a>
+                            <div class="news-text-box">
+                                <h3><a href="single-news.html">Actualiza contraseña</a></h3>
+
+                                <p class="excerpt">Asegúrese de que su cuenta utilice una contraseña larga y aleatoria para
+                                    mantenerse segura.</p>
+                                <div class="billing-address-form">
+                                    <form action="index.html">
+                                        <p>
+                                            <label for="nombre">Contraseña actual</label>
+                                            <input type="password" id="nombre"required>
+                                            <span class="error" id="nombre-error"></span>
+                                        </p>
+                                        <form action="index.html">
+                                            <p>
+                                                <label for="nombre">Nueva contraseña</label>
+                                                <input type="password" id="nombre" required>
+                                            </p>
+                                            <form action="index.html">
+                                                <p>
+                                                    <label for="nombre">confirmar Contraseña</label>
+                                                    <input type="password" id="nombre"required>
+                                                    <span class="error" id="nombre-error"></span>
+                                                </p>
+
+                                                <p><input type="submit" value="actualizar"></p>
+
+                                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-latest-news">
+                            <a href="single-news.html"></a>
+                            <div class="news-text-box">
+                                <h3><a href="single-news.html">Borrar cuenta</a></h3>
+
+                                <p class="excerpt">Una vez que se elimine su cuenta, todos sus recursos y datos se
+                                    eliminarán permanentemente. Antes de eliminar su cuenta, descargue cualquier dato o
+                                    información que desee conservar.</p>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </x-app-layout>
+
+
+
+        <!-- jquery -->
+        <script src="assetss/js/jquery-1.11.3.min.js"></script>
+        <!-- bootstrap -->
+        <script src="assetss/bootstrap/js/bootstrap.min.js"></script>
+        <!-- count down -->
+        <script src="assetss/js/jquery.countdown.js"></script>
+        <!-- isotope -->
+        <script src="assetss/js/jquery.isotope-3.0.6.min.js"></script>
+        <!-- waypoints -->
+        <script src="assetss/js/waypoints.js"></script>
+        <!-- owl carousel -->
+        <script src="assetss/js/owl.carousel.min.js"></script>
+        <!-- magnific popup -->
+        <script src="assetss/js/jquery.magnific-popup.min.js"></script>
+        <!-- mean menu -->
+        <script src="assetss/js/jquery.meanmenu.min.js"></script>
+        <!-- sticker js -->
+        <script src="assetss/js/sticker.js"></script>
+        <!-- main js -->
+        <script src="assetss/js/main.js"></script>
+
+    </body>
+
+    </html>
+    <script>
+      document.getElementById('user-icon').addEventListener('click', function() {
+        var userOptions = document.getElementById('user-options');
+        if (userOptions.style.display === 'none' || userOptions.style.display === '') {
+            userOptions.style.display = 'block';
+        } else {
+            userOptions.style.display = 'none';
+        }
+    });
+
+    // Cerrar las opciones de usuario si se hace clic fuera de ellas
+    document.addEventListener('click', function(event) {
+        var userOptions = document.getElementById('user-options');
+        var userIcon = document.getElementById('user-icon');
+
+        if (event.target !== userIcon && event.target !== userOptions) {
+            userOptions.style.display = 'none';
+        }
+    });
+
+    </script>
 @endsection
+

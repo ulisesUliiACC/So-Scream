@@ -12,6 +12,7 @@ use App\Http\Controllers\Gateways\PaypalController;
 use App\Models\Admin;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\NewAdmins\NewAdminsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::get('/So_Scream', function () {
 });
 
 Route::get('about',[DashboardController::class,'about'])->name('about');
+Route::get('Contato',[DashboardController::class,'contacto'])->name('Contacto');
 /* ---------------------------------------------------------------------------------------*/
 
 /* rutas de usuarios */
@@ -86,7 +88,11 @@ Route::get('about',[DashboardController::class,'about'])->name('about');
 
 
 
-
+    Route::middleware('auth')->group(function () {
+      Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+      Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+      Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  });
 
 
 

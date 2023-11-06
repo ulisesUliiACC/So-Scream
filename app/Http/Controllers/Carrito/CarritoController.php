@@ -107,37 +107,12 @@ class CarritoController extends Controller
     $pedido = new Pedido();
     // Obtén los datos del formulario de envío
     $nombre = $request->input('nombre');
-    $apellido = $request->input('apellido');
-    $telefono = $request->input('telefono');
-    $direccion = $request->input('direccion');
-    $referencias = $request->input('referencias');
-    $codigoPostal = $request->input('codigoPostal');
-    $estado = $request->input('estado');
-    $ciudad = $request->input('ciudad');
+    $emaile = $request->input('email');
+    $address = $request->input('address');
+    $phone=$request->input('phone');
 
-    // Crea un nuevo registro de pedido en la base de datos
-    $pedido = Pedido::create([
-      'usuario_id' => auth()->user()->id,
-      // Si los usuarios están autenticados
-      'fecha_pedido' => now(),
-      // Puedes ajustar la fecha y hora según tus necesidades
-      'estado' => 'pendiente',
-      // O el estado deseado
-      'direccion_envio' => $direccion,
-      'direccion_facturacion' => '',
-      // Puedes completar esto según tu lógica
-      'metodo_pago' => 'PayPal',
-      // O el método de pago utilizado
-      'monto_total' => 0,
-      // Puedes ajustar esto después de calcular el monto total
-      // Otros campos según tus necesidades
-    ]);
 
-    // Una vez que tengas el ID del pedido, puedes asociar los productos al pedido
-    // y realizar el cálculo del monto total, entre otras cosas.
 
-    // Finalmente, redirige al cliente a la pasarela de pago de PayPal
-    return redirect()->route('paypal.checkout'); // Ajusta la ruta según tu aplicación
   }
 
 
